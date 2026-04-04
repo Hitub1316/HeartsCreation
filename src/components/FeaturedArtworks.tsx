@@ -1,0 +1,181 @@
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { urlFor } from "@/sanity/lib/client";
+import { PortableText } from "@portabletext/react";
+
+// Import images statically for Next.js image optimization
+import momentBetweenWorlds from "@/assets/between world.jpeg";
+import whereSilenceBlooms from "@/assets/Where silence blooms.jpeg";
+import shivNandi from "@/assets/Shiv Nandi.jpeg";
+
+const artworks = [
+  {
+    id: 1,
+    title: "A Moment Between Worlds",
+    size: "24” by 24”",
+    medium: "Acrylic on canvas",
+    image: momentBetweenWorlds,
+    content: (
+      <>
+        <p className="mb-4">This painting represents:</p>
+        <ul className="list-disc pl-6 mb-6 space-y-2">
+          <li>Calm amidst chaos</li>
+          <li>Balance of energies</li>
+          <li>Mindfulness and inner strength</li>
+        </ul>
+        <p>
+          Rather than bringing heaviness, it encourages introspection,
+          grounding, and emotional balance.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: 2,
+    title: "Where Silence Blooms",
+    size: "24” by 24”",
+    medium: "Acrylic on Canvas",
+    image: whereSilenceBlooms,
+    content: (
+      <>
+        <p className="mb-6">
+          Balancing minimal composition with evocative detail, the painting
+          invites contemplation. The window becomes a metaphorical threshold—offering
+          a glimpse into memory, solitude, or an unseen world beyond—while the
+          surrounding color field reflects the intensity of inner landscapes.
+        </p>
+        <p>
+          This piece embodies a harmonious dialogue between strength and fragility,
+          making it a compelling addition to contemporary interiors seeking both
+          visual impact and emotional depth.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: 3,
+    title: "Shiv k Nadi",
+    size: "24” inches by 18” inches",
+    medium: "Mix media on canvas",
+    image: shivNandi,
+    content: (
+      <>
+        <p className="mb-6">
+          A symbol of strength, devotion & unstoppable presence. <br />
+          Abstract interpretation of divine energy in motion, where silence holds
+          power..
+        </p>
+        <div className="pl-4 border-l-2 border-wine/30 italic space-y-2 text-charcoal/80">
+          <p>“Strength is not loud.</p>
+          <p>It stands still… and commands presence.</p>
+          <p>Rooted in devotion.</p>
+          <p>Driven by power.</p>
+          <p>This is not just a bull (Nandi)…</p>
+          <p>This is energy.</p>
+          <p>This is protection.</p>
+          <p>This is Shiv Shakti in motion.”</p>
+        </div>
+      </>
+    ),
+  },
+];
+
+export default function FeaturedArtworks({ sanityArtworks = [] }: { sanityArtworks?: any[] }) {
+  const displayArtworks = sanityArtworks.length > 0 ? sanityArtworks : artworks;
+
+  return (
+    <section className="py-24 bg-surface text-charcoal overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+        
+        <div className="flex flex-col items-start mb-16">
+          <motion.h2
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="text-[10px] uppercase tracking-gallery text-charcoal/60 mb-6 font-sans font-medium"
+          >
+            Selected Works
+          </motion.h2>
+          <div className="w-12 h-px bg-charcoal/20"></div>
+        </div>
+
+        {/* Asymmetric "Curator" Grid */}
+        <div className="space-y-32 md:space-y-40">
+          {displayArtworks.map((artwork, index) => {
+            const isLarge = index % 3 === 0;
+            const imgSource = artwork.image?.asset 
+              ? urlFor(artwork.image).url() 
+              : artwork.image; 
+
+            return (
+              <div
+                key={artwork._id || artwork.id}
+                className={`grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 items-center ${
+                  index % 2 === 0 ? "" : "md:flex-row-reverse"
+                }`}
+              >
+                {/* Artwork Display */}
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 1.2, ease: "easeOut" }}
+                  className={`${
+                    isLarge ? "md:col-span-8" : "md:col-span-6 md:col-start-2"
+                  } group`}
+                >
+                  <div className="relative aspect-[4/5] w-full overflow-hidden bg-surface-low p-6 md:p-12 whisper-border">
+                    <div className="relative w-full h-full overflow-hidden shadow-sm transition-transform duration-1000 group-hover:scale-[1.02]">
+                      <img
+                        src={imgSource}
+                        alt={artwork.title}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                </div>
+                </motion.div>
+
+                {/* Annotation / Details */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 1, delay: 0.3 }}
+                  className="md:col-span-4 flex flex-col items-start pt-8"
+                >
+                  <h3 className="text-2xl md:text-3xl font-serif italic mb-4 text-charcoal font-medium">
+                    {artwork.title}
+                  </h3>
+                  <div className="text-[10px] uppercase tracking-gallery text-charcoal/60 mb-8 font-sans font-medium">
+                    {artwork.size} <span className="mx-2 opacity-30">|</span> {artwork.medium}
+                  </div>
+                  
+                  <div className="font-sans font-normal text-base leading-relaxed text-charcoal/80 mb-10">
+                    {artwork.content || (artwork.story && (
+                      Array.isArray(artwork.story) ? (
+                        <PortableText value={artwork.story} />
+                      ) : (
+                        <p>{artwork.story}</p>
+                      )
+                    ))}
+                  </div>
+                  
+                  <Link href="/shop" className="group flex items-center gap-4 text-[10px] uppercase tracking-gallery font-semibold text-primary">
+                    Inquire Details
+                    <span className="w-8 h-px bg-primary/30 transition-all duration-500 group-hover:w-12 group-hover:bg-primary"></span>
+                  </Link>
+                </motion.div>
+              </div>
+            );
+          })}
+        </div>
+
+      </div>
+    </section>
+  );
+}

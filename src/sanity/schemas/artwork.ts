@@ -1,0 +1,86 @@
+export default {
+  name: "artwork",
+  title: "Artwork",
+  type: "document",
+  fields: [
+    {
+      name: "title",
+      title: "Title",
+      type: "string",
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "title",
+        maxLength: 96,
+      },
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: "image",
+      title: "Image",
+      type: "image",
+      options: { hotspot: true },
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: "hoverImage",
+      title: "Hover Image",
+      type: "image",
+      options: { hotspot: true },
+      description: "Optional hover image for the artwork card",
+    },
+    {
+      name: "price",
+      title: "Price (INR)",
+      type: "number",
+      validation: (Rule: any) => Rule.required().min(0),
+    },
+    {
+      name: "size",
+      title: "Size",
+      type: "string",
+      description: 'e.g., "24x36 inches"',
+    },
+    {
+      name: "medium",
+      title: "Medium",
+      type: "string",
+      description: 'e.g., "Acrylic on Canvas"',
+    },
+    {
+      name: "story",
+      title: "Story / Description",
+      type: "array",
+      of: [{ type: "block" }],
+    },
+    {
+      name: "available",
+      title: "Available for Purchase",
+      type: "boolean",
+      initialValue: true,
+    },
+    {
+      name: "featured",
+      title: "Featured on Homepage",
+      type: "boolean",
+      initialValue: false,
+    },
+    {
+      name: "category",
+      title: "Category",
+      type: "reference",
+      to: [{ type: "category" }],
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: "stripeProductId",
+      title: "Stripe Product ID",
+      type: "string",
+      hidden: true,
+    },
+  ],
+};

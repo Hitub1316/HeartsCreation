@@ -1,0 +1,36 @@
+{
+  "name": "projects/6043268322086458464",
+  "projectId": "6043268322086458464",
+  "title": "Heart's Creation — Art Gallery",
+  "visibility": "PRIVATE",
+  "createTime": "2026-03-31T11:03:17.621273Z",
+  "updateTime": "2026-03-31T11:41:44Z",
+  "projectType": "PROJECT_DESIGN",
+  "origin": "STITCH",
+  "deviceType": "DESKTOP",
+  "designTheme": {
+    "colorMode": "LIGHT",
+    "customColor": "#8B2E4A",
+    "designSystemName": "assets/78199fbcf41e4a12bf335d9d59547145",
+    "designSystemTitle": "Ethereal Canvas"
+  },
+  "screens": {
+    "home": {
+      "id": "25e29fc3f0244bceb4bab352697723e8",
+      "sourceScreen": "projects/6043268322086458464/screens/25e29fc3f0244bceb4bab352697723e8",
+      "width": 2560,
+      "height": 8884,
+      "title": "Heart's Creation - Homepage"
+    },
+    "shop": {
+      "id": "7b6f642bf861406ea09eb8d6ed04824e",
+      "sourceScreen": "projects/6043268322086458464/screens/7b6f642bf861406ea09eb8d6ed04824e",
+      "width": 2560,
+      "height": 7690,
+      "title": "Heart's Creation - The Collection"
+    }
+  },
+  "metadata": {
+    "userRole": "OWNER"
+  }
+}

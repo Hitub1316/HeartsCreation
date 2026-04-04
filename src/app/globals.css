@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #fdf9f4; /* surface */
+  --foreground: #2A2A2A; /* charcoal */
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  @apply font-sans font-light leading-[1.8] antialiased;
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif italic font-light;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .no-line {
+    @apply border-none !important;
+  }
+  .whisper-border {
+    @apply border-black/5;
+  }
+}
