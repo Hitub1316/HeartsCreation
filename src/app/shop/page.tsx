@@ -2,6 +2,7 @@ import ShopGallery from "@/components/ShopGallery";
 import { getArtworksGroupedByCategory } from "@/sanity/lib/queries";
 import PageHeader from "@/components/PageHeader";
 
+export const runtime = "edge";
 export const revalidate = 60; // revalidate every minute
 
 export default async function Shop() {

@@ -1,6 +1,7 @@
 import { getSiteSettings, getStudioPageBySlug } from "@/sanity/lib/queries";
 import ContactInfo from "@/components/ContactInfo";
 
+export const runtime = "edge";
 export const revalidate = 0; // ensure fresh data on every request
 
 export default async function Contact() {
