@@ -9,6 +9,14 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    outputFileTracingExcludes: {
+      "*": [
+        "node_modules/@vercel/og/**",
+        "node_modules/next/dist/compiled/@vercel/og/**"
+      ],
+    },
+  },
   async headers() {
     return [
       {
