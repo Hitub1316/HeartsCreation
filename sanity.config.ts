@@ -4,7 +4,6 @@
  * This configuration is used to for the Sanity Studio that’s mounted on the `\src\app\studio\[[...tool]]\page.tsx` route
  */
 
-import {visionTool} from '@sanity/vision'
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 
@@ -21,9 +20,5 @@ export default defineConfig({
   schema,
   plugins: [
     structureTool({structure}),
-    // Vision is only for development
-    ...(process.env.NODE_ENV === "development" 
-      ? [visionTool({defaultApiVersion: apiVersion})] 
-      : []),
   ],
 })
