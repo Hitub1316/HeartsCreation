@@ -21,7 +21,8 @@ export default function AboutClient({ tagline, arunimaImg, page }: AboutClientPr
     >
       {/* Universal Page Header */}
       <PageHeader 
-        title={page?.title || "The Artist"} 
+        title="The Artist" 
+        subtitle="Arunima Jain"
         className="mb-12"
       />
 

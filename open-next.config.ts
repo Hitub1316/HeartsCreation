@@ -1,12 +1,15 @@
-import { defineCloudflareConfig } from "@opennextjs/cloudflare";
-
-export default defineCloudflareConfig({
+/** @type {import('@opennextjs/aws').OpenNextConfig} */
+const config = {
+  default: {
+    minify: true,
+  },
   functions: {
     // Separate the heavy Studio into its own worker
     studio: {
       routes: ["app/studio/[[...index]]/page"],
       patterns: ["studio/*"],
     },
-    // The 'default' function will handle everything else (Main site & API)
   },
-});
+};
+
+export default config;
