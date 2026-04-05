@@ -5,12 +5,23 @@
 :root {
   --background: #fdf9f4; /* surface */
   --foreground: #2A2A2A; /* charcoal */
+  --surface-low: #f7f3ee;
+  --primary-container: #8b2e4a;
+  --charcoal-rgb: 42, 42, 42;
+}
+
+.dark {
+  --background: #121212;
+  --foreground: #fdf9f4;
+  --surface-low: #1a1a1a;
+  --primary-container: #a63d5c;
+  --charcoal-rgb: 253, 249, 244;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  @apply font-sans font-light leading-[1.8] antialiased;
+  @apply font-sans font-light leading-[1.8] antialiased transition-colors duration-700;
 }
 
 @layer base {
