@@ -1,5 +1,12 @@
 import { defineCloudflareConfig } from "@opennextjs/cloudflare";
 
 export default defineCloudflareConfig({
-  // Use the standard single-worker configuration structure required by the adapter
-});
+  default: {
+    minify: true,
+    override: {
+      wrapper: "cloudflare-node",
+      converter: "edge",
+      proxyExternalRequest: "fetch",
+    },
+  },
+} as any);

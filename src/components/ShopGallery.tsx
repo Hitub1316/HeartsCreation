@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { urlFor } from "@/sanity/lib/client";
-import { ChevronDown } from "lucide-react";
+import ChevronDown from "lucide-react/dist/esm/icons/chevron-down";
 
 // Import images statically as placeholders for fallback (though less likely with grouped categories)
 import momentBetweenWorlds from "@/assets/between world.jpeg";

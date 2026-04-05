@@ -2,7 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, MessageSquare, X, Sparkles, ArrowRight } from "lucide-react";
+import Search from "lucide-react/dist/esm/icons/search";
+import MessageSquare from "lucide-react/dist/esm/icons/message-square";
+import X from "lucide-react/dist/esm/icons/x";
+import Sparkles from "lucide-react/dist/esm/icons/sparkles";
+import ArrowRight from "lucide-react/dist/esm/icons/arrow-right";
 import Image from "next/image";
 
 export default function AIConsultant() {

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import Menu from "lucide-react/dist/esm/icons/menu";
+import X from "lucide-react/dist/esm/icons/x";
 import Image from "next/image";
 import Link from "next/link";
 import logoImg from "@/assets/logo.jpg";
