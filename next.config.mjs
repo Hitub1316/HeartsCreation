@@ -19,13 +19,7 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {
-    turbopack: {
-      resolveAlias: {
-        "@vercel/og": "./src/lib/empty.js",
-      },
-    },
-  },
+  experimental: {},
   webpack: (config, { isServer }) => {
     if (isServer) {
       // Stub out the heavy @vercel/og library which adds ~1.8MB of WASM bloat
