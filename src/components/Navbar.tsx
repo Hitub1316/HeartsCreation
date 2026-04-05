@@ -40,7 +40,7 @@ export default function Navbar({
               src={logoImg} 
               alt="Logo" 
               fill 
-              className="object-cover dark:invert transition-all duration-700"
+              className="object-cover transition-all duration-700"
             />
           </Link>
           <Link href="/" className="group flex items-center">
