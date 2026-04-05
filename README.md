@@ -1,35 +1,32 @@
-# Hearts Creation
+# Heart's Creation
 
-"There is art in every heart"
+> "There is art in every heart."
 
-Hearts Creation is an art selling website for **Arunima**, an Indian artist (@hearts_creations on Instagram). The brand focuses on warm, spiritual, sustainable, handmade art and decor.
+Heart’s Creation is a high-fidelity, editorial-grade digital platform for the art of **Arunima**. Built with a "museum-first" aesthetic, the platform blends traditional craftsmanship with modern technology to showcase Pichhwai paintings, custom furniture, and spiritual art.
+
+## Features
+
+-   **Editorial Gallery**: A uniform, high-fidelity grid system designed to present artworks "at a glance" without sacrificing detail.
+-   **AI Art Consultant**: A custom-trained AI assistant to help patrons find pieces that resonate with their space and soul.
+-   **Patron Reflections**: A community guestbook where collectors share their stories, managed through an admin-controlled moderation backend.
+-   **Art Journal**: Story-driven editorial content exploring the process and philosophy behind each creation.
+-   **Direct Inquiry**: Seamless WhatsApp-integrated inquiry system for personalized art consultations.
 
 ## Tech Stack
 
-- **Framework:** [Next.js 14 (App Router)](https://nextjs.org/)
-- **Language:** [TypeScript](https://www.typescriptlang.org/)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-- **CMS:** [Sanity CMS](https://www.sanity.io/)
-- **Payments:** [Stripe](https://stripe.com/)
-- **3D Animations:** [Spline](https://spline.design/)
-- **Animations:** [Framer Motion](https://www.framer.com/motion/)
-- **Deployment:** [Vercel](https://vercel.com/)
-
-## Color Palette
-
-- **Wine:** #8B2E4A (Primary accent)
-- **Grey:** #3D3D3D (Text), #F5F5F5 (Light bg)
-- **Earth:** #A07850 (Warm accents)
-- **Cream:** #FAF6F1 (Background)
-- **Charcoal:** #2A2A2A (Dark sections)
+-   **Framework**: [Next.js 15](https://nextjs.org/) (App Router, Server Actions)
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+-   **Animations**: [Framer Motion](https://www.framer.com/motion/)
+-   **CMS**: [Sanity.io](https://www.sanity.io/) (Headless Content Management)
+-   **Design System**: Custom "Hearts Creation" design language focusing on serif elegance and tonal minimalism.
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js installed
-- Sanity project configured
-- Stripe account for payments
+-   Node.js 18.x or later
+-   NPM or Yarn
+-   Sanity CLI (optional, for studio management)
 
 ### Installation
 
@@ -45,25 +42,29 @@ Hearts Creation is an art selling website for **Arunima**, an Indian artist (@he
    ```
 
 3. Set up environment variables:
-   Create a `.env.local` file and add your Sanity, Stripe, and other configuration keys.
+   Create a `.env.local` file in the root directory:
+   ```env
+   NEXT_PUBLIC_SANITY_PROJECT_ID=your_id
+   NEXT_PUBLIC_SANITY_DATASET=production
+   SANITY_API_WRITE_TOKEN=your_write_token
+   ```
 
 4. Run the development server:
    ```bash
    npm run dev
    ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Admin Management
 
-## Project Structure
+The platform is powered by Sanity. To manage artworks, categories, and review approvals:
 
-- `/src/app`: Next.js App Router pages and layouts.
-- `/src/components`: Reusable UI components.
-- `/src/sanity`: Sanity CMS schemas and client configuration.
-- `/public`: Static assets.
+1. Launch the Studio:
+   ```bash
+   npm run sanity:start
+   # or navigate to /studio in production
+   ```
+2. **Review Approval**: New submissions from the guestbook appear in the "Patron Reviews" document list as unapproved. Toggle the `Approved` flag to publish them to the site.
 
-## About the Artist
+## Credits
 
-Arunima creates one-of-a-kind artworks ranging from Originals & Folk Art (Pichhwai, Buddha, Ganesha) to Home Decor and unique Gifts.
-
----
-Built with ❤️ for Hearts Creation.
+Designed and developed with ❤️ for the art of **Arunima**.

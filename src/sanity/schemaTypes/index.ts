@@ -3,7 +3,8 @@ import artwork from '../schemas/artwork'
 import category from '../schemas/category'
 import siteSettings from '../schemas/siteSettings'
 import order from '../schemas/order'
+import review from '../schemas/review'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [artwork, category, siteSettings, order],
+  types: [artwork, category, siteSettings, order, review],
 }

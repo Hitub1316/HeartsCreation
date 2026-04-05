@@ -34,6 +34,7 @@ export default function Footer({ settings }: { settings?: any }) {
             <div className="flex flex-col gap-6">
               <a href={instagramUrl} target="_blank" className="text-[10px] uppercase tracking-gallery text-charcoal/60 hover:text-primary transition-colors">Instagram</a>
               <a href={etsyUrl} target="_blank" className="text-[10px] uppercase tracking-gallery text-charcoal/60 hover:text-primary transition-colors">Etsy Shop</a>
+              <Link href="/reviews" className="text-[10px] uppercase tracking-gallery text-charcoal/60 hover:text-primary transition-colors">Patron Reflections</Link>
             </div>
           </div>
         </div>

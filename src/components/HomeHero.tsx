@@ -27,7 +27,7 @@ export default function HomeHero({ settings }: { settings?: any }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="mb-12 w-full max-w-4xl"
+          className="mb-8 w-full max-w-4xl px-2 transform scale-[0.85] sm:scale-100"
         >
           <HeroSVG />
         </motion.div>
@@ -38,7 +38,7 @@ export default function HomeHero({ settings }: { settings?: any }) {
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
           className="max-w-2xl px-4"
         >
-          <p className="text-xl md:text-2xl font-serif italic font-normal text-charcoal/80 leading-relaxed mb-16">
+          <p className="text-lg md:text-2xl font-serif italic font-normal text-charcoal/80 leading-relaxed mb-10">
             {tagline}
           </p>
         </motion.div>

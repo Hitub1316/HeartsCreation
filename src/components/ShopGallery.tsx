@@ -79,21 +79,17 @@ function CategorySection({ category, index }: { category: any, index: number }) 
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            {/* Asymmetric Shop Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-16 md:gap-y-24">
-              {artworks.map((artwork: any, idx: number) => {
+            {/* Uniform Shop Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 md:gap-y-24">
+              {artworks.map((artwork: any) => {
                 const imgSource = artwork.image?.asset 
                   ? urlFor(artwork.image).url() 
                   : artwork.image; 
                 
-                const isTwoCol = idx % 3 !== 0;
-
                 return (
                   <motion.div
                     key={artwork._id}
-                    className={`${
-                      isTwoCol ? "md:col-span-6" : "md:col-span-12"
-                    } group/card`}
+                    className="md:col-span-1 group/card"
                   >
                     <Link
                       href={`/shop/${artwork.slug}`}
@@ -104,7 +100,7 @@ function CategorySection({ category, index }: { category: any, index: number }) 
                           <img
                             src={typeof imgSource === 'string' ? imgSource : imgSource?.src}
                             alt={artwork.title}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-contain"
                             loading="lazy"
                           />
                         </div>

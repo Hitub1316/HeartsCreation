@@ -4,6 +4,41 @@ import { getArtworkBySlug, getSiteSettings } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/client";
 import BuyButton from "@/components/BuyButton";
 import { PortableText } from "@portabletext/react";
+import type { Metadata, ResolvingMetadata } from "next";
+
+export async function generateMetadata(
+  { params }: { params: Promise<{ slug: string }> },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { slug } = await params;
+  const artwork = await getArtworkBySlug(slug);
+  
+  if (!artwork) {
+    return {
+      title: "Artwork Not Found",
+    };
+  }
+
+  const previousImages = (await parent).openGraph?.images || [];
+  const ogImageUrl = artwork.image ? urlFor(artwork.image).width(1200).height(630).url() : "";
+
+  return {
+    title: artwork.title,
+    description: `Explore ${artwork.title} – ${artwork.medium}. A unique handcrafted artwork by Arunima.`,
+    openGraph: {
+      title: `${artwork.title} | Hearts Creation`,
+      description: artwork.story ? (typeof artwork.story === 'string' ? artwork.story.slice(0, 160) : "Original art by Arunima") : `Discover ${artwork.title}, a ${artwork.medium} masterpiece.`,
+      url: `https://hearts-creation.pages.dev/shop/${slug}`,
+      images: ogImageUrl ? [ogImageUrl, ...previousImages] : previousImages,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: artwork.title,
+      description: `Explore ${artwork.title} by Arunima.`,
+      images: ogImageUrl ? [ogImageUrl] : [],
+    },
+  };
+}
 
 // Import images statically as placeholders for the 3 featured artworks
 import momentBetweenWorlds from "@/assets/between world.jpeg";

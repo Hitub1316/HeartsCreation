@@ -98,6 +98,19 @@ export async function getBlogPostBySlug(slug: string) {
   return null; // Return null to trigger fallback in the page component
 }
 
+// Get all approved reviews
+export async function getApprovedReviews() {
+  return client.fetch(`
+    *[_type == "review" && approved == true] | order(date desc) {
+      _id,
+      name,
+      content,
+      rating,
+      date
+    }
+  `);
+}
+
 // Get site settings (Singleton)
 export async function getSiteSettings() {
   return client.fetch(`

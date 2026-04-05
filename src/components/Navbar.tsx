@@ -11,6 +11,7 @@ const navLinks = [
   { name: "Shop", path: "/shop" },
   { name: "About", path: "/about" },
   { name: "Contact", path: "/contact" },
+  { name: "Reviews", path: "/reviews" },
 ];
 
 export default function Navbar({ settings }: { settings?: any }) {
@@ -33,8 +34,8 @@ export default function Navbar({ settings }: { settings?: any }) {
               className="object-cover"
             />
           </Link>
-          <Link href="/" className="group hidden lg:block">
-            <h1 className="text-2xl md:text-3xl font-serif font-light text-charcoal group-hover:text-primary transition-colors duration-700 tracking-tight">
+          <Link href="/" className="group flex items-center">
+            <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif font-light text-charcoal group-hover:text-primary transition-colors duration-700 tracking-tight whitespace-nowrap">
               Heart&apos;s Creation
             </h1>
           </Link>
