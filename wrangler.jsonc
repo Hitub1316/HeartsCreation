@@ -1,22 +1,14 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "heartscreation",
+  "name": "hearts-creation",
   "main": ".open-next/worker.js",
-  "compatibility_date": "2026-04-05",
-  "compatibility_flags": [
-    "nodejs_compat",
-    "nodejs_als",
-    "global_fetch_strictly_public"
-  ],
+  "compatibility_date": "2025-02-14",
+  "compatibility_flags": [ "nodejs_compat" ],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".open-next/.output/assets"
+  },
   "vars": {
     "NEXT_PUBLIC_SANITY_PROJECT_ID": "qr1teroj",
     "NEXT_PUBLIC_SANITY_DATASET": "production"
-  },
-  "assets": {
-    "directory": ".open-next/assets",
-    "binding": "ASSETS"
-  },
-  "observability": {
-    "enabled": true
   }
 }
