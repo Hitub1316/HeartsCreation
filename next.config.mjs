@@ -8,7 +8,10 @@ const nextConfig = {
       "node_modules/@vercel/og/**",
       "node_modules/next/dist/compiled/@vercel/og/**",
       "node_modules/@resvg/resvg-js*/**",
-      "node_modules/@yoga-layout/wasm/**"
+      "node_modules/@yoga-layout/wasm/**",
+      "**/app/studio/**",
+      "**/node_modules/sanity/**",
+      "**/node_modules/@sanity/**"
     ],
   },
   images: {
