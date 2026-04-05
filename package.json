@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:cf": "opennextjs-cloudflare build && powershell -Command \"if (Test-Path .open-next/server-functions/default/node_modules/next/dist/compiled/@vercel/og) { Remove-Item -Recurse -Force .open-next/server-functions/default/node_modules/next/dist/compiled/@vercel/og }\" && npx wrangler deploy --minify",
+    "build:cf": "opennextjs-cloudflare build && (rm -rf .open-next/server-functions/default/node_modules/next/dist/compiled/@vercel/og || true) && npx wrangler deploy --minify",
     "deploy": "next build && opennextjs-cloudflare deploy",
     "start": "next start",
     "lint": "next lint"
