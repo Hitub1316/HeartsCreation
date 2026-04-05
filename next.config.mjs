@@ -1,5 +1,12 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
+  outputFileTracingExcludes: {
+    "*": [
+      "node_modules/@vercel/og/**",
+      "node_modules/next/dist/compiled/@vercel/og/**",
+      "node_modules/@resvg/resvg-js*/**",
+      "node_modules/@yoga-layout/wasm/**"
+    ],
+  },
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -9,14 +16,7 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {
-    outputFileTracingExcludes: {
-      "*": [
-        "node_modules/@vercel/og/**",
-        "node_modules/next/dist/compiled/@vercel/og/**"
-      ],
-    },
-  },
+  experimental: {},
   async headers() {
     return [
       {
