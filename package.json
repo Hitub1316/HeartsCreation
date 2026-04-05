@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build:cf": "opennextjs-cloudflare build && (rm -rf .open-next/server-functions/default/node_modules/next/dist/compiled/@vercel/og || true) && npx esbuild .open-next/worker.js --bundle --minify --platform=browser --format=esm --target=es2022 --external:cloudflare:* --external:node:* --external:async_hooks --external:fs --external:path --external:os --external:url --external:vm --external:util --external:buffer --external:events --external:crypto --external:stream --external:http --external:https --external:zlib --external:querystring --external:assert --external:tls --external:tty --external:net --external:child_process --allow-overwrite --outfile=.open-next/worker.js && npx wrangler deploy --minify"
+    "build:cf": "npm install --legacy-peer-deps && opennextjs-cloudflare build && (rm -rf .open-next/server-functions/default/node_modules/next/dist/compiled/@vercel/og || true) && npx esbuild .open-next/worker.js --bundle --minify --platform=browser --format=esm --target=es2022 --external:cloudflare:* --external:node:* --external:async_hooks --external:fs --external:path --external:os --external:url --external:vm --external:util --external:buffer --external:events --external:crypto --external:stream --external:http --external:https --external:zlib --external:querystring --external:assert --external:tls --external:tty --external:net --external:child_process --allow-overwrite --outfile=.open-next/worker.js && npx wrangler deploy --minify"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.18.0",
