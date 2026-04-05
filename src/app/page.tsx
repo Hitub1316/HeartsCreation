@@ -3,7 +3,7 @@ import FeaturedArtworks from "@/components/FeaturedArtworks";
 import { getFeaturedArtworks, getSiteSettings } from "@/sanity/lib/queries";
 
 export const runtime = "edge";
-export const revalidate = 0; // ensure fresh data on every request
+// static by default
 
 export default async function Home() {
   const sanityArtworks = await getFeaturedArtworks();

@@ -3,7 +3,7 @@ import AboutClient from "@/components/AboutClient";
 import arunimaImg from "@/assets/Arunima.jpeg";
 
 export const runtime = "edge";
-export const revalidate = 0; // ensure fresh data on every request
+// static by default
 
 export default async function AboutPage() {
   const [settings, page] = await Promise.all([

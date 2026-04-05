@@ -3,7 +3,7 @@ import { getArtworksGroupedByCategory } from "@/sanity/lib/queries";
 import PageHeader from "@/components/PageHeader";
 
 export const runtime = "edge";
-export const revalidate = 60; // revalidate every minute
+// static by default
 
 export default async function Shop() {
   const allCategories = await getArtworksGroupedByCategory();
