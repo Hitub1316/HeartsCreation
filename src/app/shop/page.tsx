@@ -17,7 +17,7 @@ export default async function Shop() {
   const totalPieces = categories?.reduce((acc: number, cat: any) => acc + (cat.artworks?.length || 0), 0) || 0;
 
   return (
-    <main className="min-h-screen pt-12 pb-24 selection:bg-primary/10">
+    <main className="min-h-screen pt-8 md:pt-12 pb-24 selection:bg-primary/10">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
         
         {/* Universal Page Header */}

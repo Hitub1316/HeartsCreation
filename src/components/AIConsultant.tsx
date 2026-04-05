@@ -52,7 +52,7 @@ export default function AIConsultant() {
   return (
     <>
       {/* Global AI Search Feature - Integrated Layout */}
-      <section className="bg-background dark:bg-neutral-900/50 py-4 border-b border-charcoal/5 dark:border-white/5 transition-colors duration-700">
+      <section className="bg-background dark:bg-neutral-900/50 pt-2 pb-6 md:py-4 border-b border-charcoal/5 dark:border-white/5 transition-colors duration-700">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
           <div className="max-w-xl mx-auto">
             <form 

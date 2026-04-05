@@ -37,19 +37,19 @@ export default function ReviewForm() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 1 }}
-      className="bg-surface p-12 md:p-20 shadow-sm whisper-border"
+      className="bg-background dark:bg-neutral-900/50 p-12 md:p-20 shadow-sm whisper-border dark:border-white/5 transition-colors duration-700"
     >
       <div className="max-w-2xl mx-auto space-y-12">
         <div className="text-center space-y-4">
-          <h2 className="text-4xl md:text-5xl font-serif italic font-light text-charcoal">
+          <h2 className="text-4xl md:text-5xl font-serif italic font-light text-charcoal dark:text-cream transition-colors duration-700">
             Share your Experience
           </h2>
-          <div className="w-12 h-px bg-charcoal/20 mx-auto"></div>
+          <div className="w-12 h-px bg-charcoal/20 dark:bg-white/20 mx-auto transition-colors duration-700"></div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-10">
           <div className="space-y-2 group">
-            <label className="text-[10px] uppercase tracking-gallery text-charcoal/40 group-focus-within:text-primary transition-colors duration-500 font-sans font-medium">
+            <label className="text-[10px] uppercase tracking-gallery text-charcoal/40 dark:text-white/40 group-focus-within:text-primary transition-colors duration-500 font-sans font-medium">
               Your Name
             </label>
             <input
@@ -57,13 +57,13 @@ export default function ReviewForm() {
               required
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full bg-transparent border-b border-charcoal/10 focus:border-primary outline-none py-3 text-xl font-serif text-charcoal transition-all duration-700"
+              className="w-full bg-transparent border-b border-charcoal/10 dark:border-white/10 focus:border-primary outline-none py-3 text-xl font-serif text-charcoal dark:text-cream placeholder:text-charcoal/20 dark:placeholder:text-white/20 transition-all duration-700"
               placeholder="How should we address you?"
             />
           </div>
 
           <div className="space-y-4 group">
-            <label className="text-[10px] uppercase tracking-gallery text-charcoal/40 group-focus-within:text-primary transition-colors duration-500 font-sans font-medium">
+            <label className="text-[10px] uppercase tracking-gallery text-charcoal/40 dark:text-white/40 group-focus-within:text-primary transition-colors duration-500 font-sans font-medium">
               The Review
             </label>
             <textarea
@@ -71,7 +71,7 @@ export default function ReviewForm() {
               rows={5}
               value={formData.review}
               onChange={(e) => setFormData({ ...formData, review: e.target.value })}
-              className="w-full bg-transparent border border-charcoal/5 focus:border-primary outline-none p-6 text-2xl font-serif italic text-charcoal transition-all duration-700 leading-relaxed shadow-inner"
+              className="w-full bg-transparent border border-charcoal/10 dark:border-white/10 focus:border-primary outline-none p-6 text-2xl font-serif italic text-charcoal dark:text-cream placeholder:text-charcoal/20 dark:placeholder:text-white/20 transition-all duration-700 leading-relaxed shadow-inner"
               placeholder="Describe your journey with Hearts Creation art..."
             />
           </div>
@@ -79,10 +79,10 @@ export default function ReviewForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-primary text-surface py-6 px-12 text-[11px] uppercase tracking-gallery font-sans font-medium group relative overflow-hidden transition-all duration-700 hover:tracking-[0.4em] disabled:opacity-50 disabled:hover:tracking-gallery"
+            className="w-full bg-charcoal dark:bg-white text-cream dark:text-charcoal py-6 px-12 text-[11px] uppercase tracking-gallery font-sans font-medium group relative overflow-hidden transition-all duration-700 hover:tracking-[0.4em] disabled:opacity-50 disabled:hover:tracking-gallery shadow-xl shadow-charcoal/5"
           >
             <span className="relative z-10">{isSubmitting ? "Sharing your story..." : "Leave a review"}</span>
-            {!isSubmitting && <div className="absolute inset-0 bg-primary-container scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>}
+            {!isSubmitting && <div className="absolute inset-0 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>}
           </button>
 
           {feedback && (

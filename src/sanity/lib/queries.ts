@@ -119,3 +119,29 @@ export async function getSiteSettings() {
     }
   `);
 }
+
+// Get legal page by slug
+export async function getLegalPageBySlug(slug: string) {
+  return client.fetch(
+    `
+    *[_type == "legal" && slug.current == $slug][0] {
+      ...,
+      content
+    }
+  `,
+    { slug }
+  );
+}
+
+// Get studio page by slug
+export async function getStudioPageBySlug(slug: string) {
+  return client.fetch(
+    `
+    *[_type == "studioPage" && slug.current == $slug][0] {
+      ...,
+      mainImage
+    }
+  `,
+    { slug }
+  );
+}

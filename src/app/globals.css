@@ -11,9 +11,9 @@
 }
 
 .dark {
-  --background: #300512;
+  --background: #492428;
   --foreground: #fdf9f4;
-  --surface-low: #3a0d1d;
+  --surface-low: #301e20;
   --primary-container: #a63d5c;
   --charcoal-rgb: 253, 249, 244;
 }
@@ -21,7 +21,15 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  @apply font-sans font-light leading-[1.8] antialiased transition-colors duration-700;
+  @apply font-sans font-light leading-[1.8] antialiased transition-all duration-700;
+}
+
+.dark img {
+  @apply transition-all duration-700;
+}
+
+.dark img:hover {
+  filter: drop-shadow(0 0 15px rgba(253, 249, 244, 0.15));
 }
 
 @layer base {

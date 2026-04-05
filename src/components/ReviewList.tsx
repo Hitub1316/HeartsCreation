@@ -23,11 +23,11 @@ export default function ReviewList() {
   }, []);
 
   if (loading) {
-    return <div className="text-charcoal/40 animate-pulse font-sans py-12">Retrieving stories from the studio...</div>;
+    return <div className="text-charcoal/40 dark:text-white/40 animate-pulse font-sans py-12 transition-colors duration-700">Retrieving stories from the studio...</div>;
   }
 
   if (reviews.length === 0) {
-    return <div className="text-charcoal/20 font-serif italic py-12">The guestbook is waiting for its first story.</div>;
+    return <div className="text-charcoal/20 dark:text-white/20 font-serif italic py-12 transition-colors duration-700">The guestbook is waiting for its first story.</div>;
   }
 
   return (
@@ -42,11 +42,11 @@ export default function ReviewList() {
           className="group"
         >
           <div className="flex flex-col gap-3">
-            <h3 className="text-sm sm:text-base uppercase tracking-gallery text-charcoal/80 font-sans font-semibold">
+            <h3 className="text-sm sm:text-base uppercase tracking-gallery text-charcoal/80 dark:text-white/90 font-sans font-semibold transition-colors duration-700">
               {review.name}
             </h3>
             <div className="relative pl-6 border-l border-primary/10 group-hover:border-primary/30 transition-colors duration-700">
-              <p className="text-base md:text-lg font-sans font-normal text-charcoal/70 leading-relaxed italic">
+              <p className="text-base md:text-lg font-sans font-normal text-charcoal/70 dark:text-cream/80 leading-relaxed italic transition-colors duration-700">
                 &ldquo;{review.content}&rdquo;
               </p>
             </div>

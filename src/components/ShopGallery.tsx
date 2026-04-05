@@ -49,22 +49,22 @@ function CategorySection({ category, index }: { category: any, index: number }) 
       {/* Category Header - Minimalist Editorial Style */}
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-end justify-between py-8 group mb-8"
+        className="w-full flex items-end justify-between py-8 group mb-8 border-b border-charcoal/5 dark:border-white/5 transition-colors duration-700"
       >
         <div className="flex flex-col items-start gap-3">
-          <span className="text-[10px] uppercase tracking-gallery text-charcoal/60 font-sans font-medium">Collection {index + 1}</span>
-          <h2 className="text-4xl md:text-5xl font-serif italic font-light text-charcoal group-hover:text-primary transition-all duration-700 tracking-tight">
+          <span className="text-[10px] uppercase tracking-gallery text-charcoal/60 dark:text-white/60 font-sans font-medium transition-colors duration-700">Collection {index + 1}</span>
+          <h2 className="text-4xl md:text-5xl font-serif italic font-light text-charcoal dark:text-cream group-hover:text-primary transition-all duration-700 tracking-tight">
             {category.name}
           </h2>
         </div>
         <div className="flex flex-col items-end gap-3">
-          <span className="text-[10px] uppercase tracking-gallery text-charcoal/60 font-sans font-medium">
+          <span className="text-[10px] uppercase tracking-gallery text-charcoal/60 dark:text-white/60 font-sans font-medium transition-colors duration-700">
             {artworks.length} Works
           </span>
           <motion.div
             animate={{ rotate: isOpen ? 0 : -90 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-charcoal/40 group-hover:text-primary transition-colors"
+            className="text-charcoal/40 dark:text-white/40 group-hover:text-primary transition-colors"
           >
             <ChevronDown className="w-5 h-5 stroke-[1px]" />
           </motion.div>
@@ -95,7 +95,7 @@ function CategorySection({ category, index }: { category: any, index: number }) 
                       href={`/shop/${artwork.slug}`}
                       className="flex flex-col gap-6"
                     >
-                      <div className="relative aspect-[4/5] w-full overflow-hidden bg-surface-low p-6 md:p-12 whisper-border">
+                      <div className="relative aspect-[4/5] w-full overflow-hidden bg-background dark:bg-[#301e20] p-6 md:p-12 whisper-border dark:border-white/5 transition-colors duration-700">
                         <div className="relative w-full h-full overflow-hidden shadow-sm transition-transform duration-1000 group-hover/card:scale-[1.02]">
                           <img
                             src={typeof imgSource === 'string' ? imgSource : imgSource?.src}
@@ -108,10 +108,10 @@ function CategorySection({ category, index }: { category: any, index: number }) 
                       
                       <div className="flex justify-between items-start pt-2 px-1">
                         <div className="space-y-3">
-                          <h3 className="text-xl md:text-2xl font-serif italic text-charcoal group-hover/card:text-primary transition-colors duration-700 font-medium">
+                          <h3 className="text-xl md:text-2xl font-serif italic text-charcoal dark:text-cream group-hover/card:text-primary transition-colors duration-700 font-medium">
                             {artwork.title}
                           </h3>
-                          <p className="text-[10px] uppercase tracking-gallery text-charcoal/60 font-sans font-medium">
+                          <p className="text-[10px] uppercase tracking-gallery text-charcoal/60 dark:text-white/60 font-sans font-medium transition-colors duration-700">
                             {artwork.medium} &middot; {artwork.size}
                           </p>
                         </div>

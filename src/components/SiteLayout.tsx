@@ -46,7 +46,7 @@ export default function SiteLayout({
       <Navbar settings={settings} theme={theme} toggleTheme={toggleTheme} />
       
       {/* Global Features Area */}
-      <div className="pt-24 flex flex-col bg-background dark:bg-neutral-900 transition-colors duration-700">
+      <div className="pt-24 flex flex-col bg-background transition-colors duration-700">
         <AIConsultant />
         <main className="flex-grow">
           {children}

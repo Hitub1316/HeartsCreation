@@ -12,7 +12,7 @@ import PageHeader from "@/components/PageHeader";
 
 export default function ReviewPage() {
   return (
-    <div className="pt-24 pb-24 min-h-screen">
+    <div className="pt-10 md:pt-24 pb-24 min-h-screen">
       <div className="max-w-7xl mx-auto px-6">
         {/* Universal Page Header */}
         <PageHeader 

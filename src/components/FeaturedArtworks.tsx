@@ -87,7 +87,7 @@ export default function FeaturedArtworks({ sanityArtworks = [] }: { sanityArtwor
   const displayArtworks = sanityArtworks.length > 0 ? sanityArtworks : artworks;
 
   return (
-    <section className="py-24 bg-surface text-charcoal overflow-hidden">
+    <section className="py-24 overflow-hidden bg-background transition-colors duration-700">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
         
         <div className="flex flex-col items-start mb-16">
@@ -96,11 +96,11 @@ export default function FeaturedArtworks({ sanityArtworks = [] }: { sanityArtwor
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="text-[10px] uppercase tracking-gallery text-charcoal/60 mb-6 font-sans font-medium"
+            className="text-[10px] uppercase tracking-gallery text-charcoal/60 dark:text-white/60 mb-6 font-sans font-medium transition-colors duration-700"
           >
             Selected Works
           </motion.h2>
-          <div className="w-12 h-px bg-charcoal/20"></div>
+          <div className="w-12 h-px bg-charcoal/20 dark:bg-white/20 transition-colors duration-700"></div>
         </div>
 
         {/* Uniform "Curator" Grid */}
@@ -122,9 +122,9 @@ export default function FeaturedArtworks({ sanityArtworks = [] }: { sanityArtwor
                 {/* Artwork Display */}
                 <Link
                   href={`/shop/${artwork.slug || artwork.id}`}
-                  className="relative aspect-[4/5] w-full overflow-hidden bg-surface-low p-6 md:p-12 whisper-border mb-8 block"
+                  className="relative aspect-[4/5] w-full overflow-hidden bg-background dark:bg-[#301e20] shadow-sm p-6 md:p-12 whisper-border dark:border-white/5 mb-8 block transition-colors duration-700"
                 >
-                  <div className="relative w-full h-full overflow-hidden shadow-sm transition-transform duration-1000 group-hover:scale-[1.02]">
+                  <div className="relative w-full h-full overflow-hidden transition-transform duration-1000 group-hover:scale-[1.02]">
                     <img
                       src={imgSource}
                       alt={artwork.title}
@@ -136,14 +136,14 @@ export default function FeaturedArtworks({ sanityArtworks = [] }: { sanityArtwor
 
                 {/* Annotation / Details */}
                 <div className="flex flex-col items-start px-2">
-                  <h3 className="text-2xl md:text-3xl font-serif italic mb-3 text-charcoal font-medium">
+                  <h3 className="text-2xl md:text-3xl font-serif italic mb-3 text-charcoal dark:text-cream font-medium transition-colors duration-700">
                     {artwork.title}
                   </h3>
-                  <div className="text-[10px] uppercase tracking-gallery text-charcoal/60 mb-6 font-sans font-medium">
+                  <div className="text-[10px] uppercase tracking-gallery text-charcoal/60 dark:text-white/60 mb-6 font-sans font-medium transition-colors duration-700">
                     {artwork.size} <span className="mx-2 opacity-30">|</span> {artwork.medium}
                   </div>
                   
-                  <div className="font-sans font-normal text-sm leading-relaxed text-charcoal/80 mb-8 line-clamp-3">
+                  <div className="font-sans font-normal text-sm leading-relaxed text-charcoal/80 dark:text-cream/80 mb-8 line-clamp-3 transition-colors duration-700">
                     {artwork.content || (artwork.story && (
                       Array.isArray(artwork.story) ? (
                         <PortableText value={artwork.story} />
