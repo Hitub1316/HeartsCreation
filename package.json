@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.18.0",
+    "@portabletext/react": "^3.2.1",
     "@sanity/client": "^6.28.3",
     "@sanity/image-url": "^1.1.0",
     "framer-motion": "^12.4.7",
+    "groq": "^3.77.3",
     "lucide-react": "^0.476.0",
     "next": "16.1.7",
     "next-sanity": "^9.8.58",
