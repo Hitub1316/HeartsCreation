@@ -71,7 +71,7 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${cormorant.variable} ${dmSans.variable} font-sans antialiased bg-cream text-charcoal min-h-screen flex flex-col`}
+        className={`${cormorant.variable} ${dmSans.variable} font-sans antialiased min-h-screen flex flex-col`}
         suppressHydrationWarning
       >
         <SiteLayout settings={settings}>

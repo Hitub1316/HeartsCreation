@@ -8,7 +8,7 @@ export default async function Contact() {
   const settings = await getSiteSettings();
 
   return (
-    <main className="min-h-screen bg-cream text-charcoal py-40 px-6 sm:px-12 md:px-24 selection:bg-wine/20">
+    <main className="min-h-screen pt-24 pb-24 px-6 sm:px-12 md:px-24 selection:bg-wine/20">
       <div className="max-w-7xl mx-auto flex justify-center">
 
         {/* Contact Info Wrapper */}

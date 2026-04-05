@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function SuccessPage() {
   return (
-    <main className="min-h-screen bg-cream text-charcoal flex flex-col items-center justify-center px-6 selection:bg-wine/20">
+    <main className="min-h-screen text-charcoal dark:text-cream flex flex-col items-center justify-center px-6 selection:bg-wine/20 transition-colors duration-700">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}

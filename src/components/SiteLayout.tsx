@@ -19,8 +19,11 @@ export default function SiteLayout({
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    setTheme(savedTheme || systemTheme);
+    if (savedTheme) {
+      setTheme(savedTheme);
+    } else {
+      setTheme('light');
+    }
   }, []);
 
   useEffect(() => {

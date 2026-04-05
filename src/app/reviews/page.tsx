@@ -8,28 +8,29 @@ export const metadata: Metadata = {
   description: "What our patrons say about the art of Arunima and Hearts Creation.",
 };
 
+import PageHeader from "@/components/PageHeader";
+
 export default function ReviewPage() {
   return (
-    <div className="pt-40 pb-24 bg-surface-low min-h-screen">
-      <div className="max-w-7xl mx-auto px-6 space-y-32">
-        {/* Header */}
-        <div className="max-w-3xl space-y-2">
-          <h1 className="text-5xl md:text-7xl font-serif font-light text-charcoal tracking-tight">
-            Patron <span className="italic">Reflections</span>
-          </h1>
-          <p className="text-[10px] md:text-[11px] font-sans text-charcoal/40 leading-relaxed uppercase tracking-widest font-medium">
-            A GUESTBOOK OF STORIES & SENSATIONS
-          </p>
-        </div>
+    <div className="pt-24 pb-24 min-h-screen">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Universal Page Header */}
+        <PageHeader 
+          title="Patron Reflections" 
+          subtitle="A GUESTBOOK OF STORIES & SENSATIONS"
+          className="mb-20"
+        />
 
-        {/* Review List */}
-        <div className="max-w-4xl pt-8">
-          <ReviewList />
-        </div>
+        <div className="space-y-32">
+          {/* Review List */}
+          <div className="max-w-4xl">
+            <ReviewList />
+          </div>
 
-        {/* Feedback Form */}
-        <div className="pt-24 border-t border-charcoal/5">
-          <ReviewForm />
+          {/* Feedback Form */}
+          <div className="pt-24 border-t border-charcoal/5 dark:border-white/5 transition-colors duration-700">
+            <ReviewForm />
+          </div>
         </div>
       </div>
     </div>
