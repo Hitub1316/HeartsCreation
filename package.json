@@ -14,6 +14,7 @@
     "@google/generative-ai": "^0.24.1",
     "@portabletext/react": "^6.0.3",
     "@sanity/image-url": "^1.2.0",
+    "@sanity/vision": "^4.22.0",
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.0.1",
     "next": "^16.1.7",
@@ -26,7 +27,6 @@
     "stripe": "^20.4.1"
   },
   "devDependencies": {
-    "@sanity/vision": "^4.22.0",
     "@opennextjs/cloudflare": "^1.18.0",
     "@types/node": "^20",
     "@types/react": "^19.2.14",
