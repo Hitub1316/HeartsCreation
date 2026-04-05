@@ -20,13 +20,18 @@ export default function SiteLayout({
   }
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Navbar settings={settings} />
-      <AIConsultant />
-      <main className="flex-grow">
-        {children}
-      </main>
+      
+      {/* Global Features Area */}
+      <div className="pt-24 flex flex-col">
+        <AIConsultant />
+        <main className="flex-grow">
+          {children}
+        </main>
+      </div>
+
       <Footer settings={settings} />
-    </>
+    </div>
   );
 }

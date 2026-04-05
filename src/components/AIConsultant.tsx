@@ -51,25 +51,33 @@ export default function AIConsultant() {
 
   return (
     <>
-      {/* Top Search Bar Hook */}
-      <div className="fixed top-24 left-1/2 -translate-x-1/2 z-40 w-full max-w-xl px-4 pointer-events-none">
-        <form 
-          onSubmit={handleSearch}
-          className="pointer-events-auto group relative flex items-center bg-white/40 backdrop-blur-xl border border-charcoal/5 rounded-full px-6 py-3 shadow-sm hover:shadow-md transition-all duration-500"
-        >
-          <Search className="w-4 h-4 text-charcoal/40 group-focus-within:text-wine transition-colors" />
-          <input 
-            type="text"
-            placeholder="What are you looking for?"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="w-full bg-transparent px-4 text-sm font-sans font-light focus:outline-none text-charcoal"
-          />
-          <button type="submit" className="text-charcoal/20 hover:text-wine transition-colors">
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </form>
-      </div>
+      {/* Global AI Search Feature - Integrated Layout */}
+      <section className="bg-surface py-20 border-b border-charcoal/5">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+          <div className="max-w-xl mx-auto">
+            <form 
+              onSubmit={handleSearch}
+              className="group relative flex items-center bg-white/60 border border-charcoal/10 rounded-full px-8 py-4 shadow-sm hover:shadow-md transition-all duration-700"
+            >
+              <Search className="w-5 h-5 text-charcoal/30 group-focus-within:text-primary transition-colors" />
+              <input 
+                type="text"
+                placeholder="What are you looking for?"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                className="w-full bg-transparent px-6 text-base font-sans font-normal focus:outline-none text-charcoal placeholder:text-charcoal/20"
+              />
+              <button 
+                type="submit" 
+                className="flex items-center gap-2 text-charcoal/40 hover:text-primary transition-all duration-500"
+              >
+                <span className="text-[10px] uppercase tracking-gallery font-semibold hidden sm:inline">Ask AI</span>
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
 
       {/* Results/Chat Overlay */}
       <AnimatePresence>

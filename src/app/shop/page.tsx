@@ -4,14 +4,21 @@ import { getArtworksGroupedByCategory } from "@/sanity/lib/queries";
 export const revalidate = 60; // revalidate every minute
 
 export default async function Shop() {
-  const categories = await getArtworksGroupedByCategory();
+  const allCategories = await getArtworksGroupedByCategory();
+  
+  // Sort categories to prioritize "Summer Collection 2026"
+  const categories = [...(allCategories || [])].sort((a: any, b: any) => {
+    if (a.name === "Summer Collection 2026") return -1;
+    if (b.name === "Summer Collection 2026") return 1;
+    return a.name.localeCompare(b.name);
+  });
 
   return (
-    <main className="min-h-screen bg-surface text-charcoal py-40 selection:bg-primary/10">
+    <main className="min-h-screen bg-surface text-charcoal pt-12 pb-24 selection:bg-primary/10">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
         
         {/* Editorial Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-32 group animate-in fade-in slide-in-from-bottom-6 duration-1000">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 group animate-in fade-in slide-in-from-bottom-6 duration-1000">
           <div className="space-y-8">
             <h1 className="text-5xl md:text-8xl font-serif italic font-light tracking-tight">The Collection</h1>
             <div className="w-12 h-px bg-charcoal/10"></div>
