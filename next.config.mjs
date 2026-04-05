@@ -19,11 +19,17 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {},
+  experimental: {
+    turbopack: {
+      resolveAlias: {
+        "@vercel/og": "./src/lib/empty.js",
+      },
+    },
+  },
   webpack: (config, { isServer }) => {
     if (isServer) {
       // Stub out the heavy @vercel/og library which adds ~1.8MB of WASM bloat
-      config.resolve.alias['@vercel/og'] = false;
+      config.resolve.alias["@vercel/og"] = false;
     }
     return config;
   },
