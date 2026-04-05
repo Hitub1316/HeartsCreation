@@ -20,6 +20,13 @@ const nextConfig = {
     ],
   },
   experimental: {},
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      // Stub out the heavy @vercel/og library which adds ~1.8MB of WASM bloat
+      config.resolve.alias['@vercel/og'] = false;
+    }
+    return config;
+  },
   async headers() {
     return [
       {
