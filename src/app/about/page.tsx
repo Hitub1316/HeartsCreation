@@ -2,7 +2,7 @@ import { getSiteSettings, getStudioPageBySlug } from "@/sanity/lib/queries";
 import AboutClient from "@/components/AboutClient";
 import arunimaImg from "@/assets/Arunima.jpeg";
 
-export const runtime = "edge";
+// static by default
 // static by default
 
 export default async function AboutPage() {

@@ -1,7 +1,7 @@
 import { getSiteSettings, getStudioPageBySlug } from "@/sanity/lib/queries";
 import ContactInfo from "@/components/ContactInfo";
 
-export const runtime = "edge";
+// static by default
 // static by default
 
 export default async function Contact() {

@@ -2,7 +2,7 @@ import HomeHero from "@/components/HomeHero";
 import FeaturedArtworks from "@/components/FeaturedArtworks";
 import { getFeaturedArtworks, getSiteSettings } from "@/sanity/lib/queries";
 
-export const runtime = "edge";
+// static by default
 // static by default
 
 export default async function Home() {

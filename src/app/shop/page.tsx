@@ -2,7 +2,7 @@ import ShopGallery from "@/components/ShopGallery";
 import { getArtworksGroupedByCategory } from "@/sanity/lib/queries";
 import PageHeader from "@/components/PageHeader";
 
-export const runtime = "edge";
+// static by default
 // static by default
 
 export default async function Shop() {
