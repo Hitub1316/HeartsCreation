@@ -25,6 +25,7 @@
     "sanity": "^4.22.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^16.2.2",
     "@opennextjs/cloudflare": "^1.18.0",
     "@types/node": "^20",
     "@types/react": "^19.2.14",
