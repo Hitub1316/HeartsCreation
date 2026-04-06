@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { MotionDiv, MotionP } from "./ClientMotion";
 import { submitReview } from "@/app/actions/reviews";
 
 export default function ReviewForm() {
@@ -32,7 +32,7 @@ export default function ReviewForm() {
   };
 
   return (
-    <motion.div
+    <MotionDiv
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -86,16 +86,16 @@ export default function ReviewForm() {
           </button>
 
           {feedback && (
-            <motion.p 
+            <MotionP 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               className={`text-center text-[10px] uppercase tracking-gallery font-semibold ${feedback.type === 'success' ? 'text-green-600' : 'text-red-500'}`}
             >
               {feedback.message}
-            </motion.p>
+            </MotionP>
           )}
         </form>
       </div>
-    </motion.div>
+    </MotionDiv>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { MotionDiv, AnimatePresence } from "./ClientMotion";
 import Link from "next/link";
 import { urlFor } from "@/sanity/lib/client";
 import ChevronDown from "lucide-react/dist/esm/icons/chevron-down";
@@ -61,19 +61,19 @@ function CategorySection({ category, index }: { category: any, index: number }) 
           <span className="text-[10px] uppercase tracking-gallery text-charcoal/60 dark:text-white/60 font-sans font-medium transition-colors duration-700">
             {artworks.length} Works
           </span>
-          <motion.div
+          <MotionDiv
             animate={{ rotate: isOpen ? 0 : -90 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="text-charcoal/40 dark:text-white/40 group-hover:text-primary transition-colors"
           >
             <ChevronDown className="w-5 h-5 stroke-[1px]" />
-          </motion.div>
+          </MotionDiv>
         </div>
       </button>
 
       <AnimatePresence initial={false}>
         {isOpen && (
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
@@ -87,7 +87,7 @@ function CategorySection({ category, index }: { category: any, index: number }) 
                   : artwork.image; 
                 
                 return (
-                  <motion.div
+                  <MotionDiv
                     key={artwork._id}
                     className="md:col-span-1 group/card"
                   >
@@ -120,11 +120,11 @@ function CategorySection({ category, index }: { category: any, index: number }) 
                         </div>
                       </div>
                     </Link>
-                  </motion.div>
+                  </MotionDiv>
                 );
               })}
             </div>
-          </motion.div>
+          </MotionDiv>
         )}
       </AnimatePresence>
     </div>

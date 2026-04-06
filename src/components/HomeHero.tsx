@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { MotionDiv } from "@/components/ClientMotion";
 import HeroSVG from "@/components/HeroSVG";
 
 export default function HomeHero({ settings }: { settings?: any }) {
@@ -32,16 +32,16 @@ export default function HomeHero({ settings }: { settings?: any }) {
       {/* Hero Content - Shifted Up on Mobile */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 h-full flex flex-col items-center justify-start pt-32 sm:justify-center sm:pt-0 text-center">
         
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="mb-8 w-full max-w-4xl px-2 transform scale-[0.85] sm:scale-100"
         >
           <HeroSVG />
-        </motion.div>
+        </MotionDiv>
         
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
@@ -50,9 +50,9 @@ export default function HomeHero({ settings }: { settings?: any }) {
           <p className="text-lg md:text-2xl font-serif italic font-normal text-charcoal/80 dark:text-cream/80 leading-relaxed mb-10 transition-colors duration-700">
             {tagline}
           </p>
-        </motion.div>
+        </MotionDiv>
 
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
@@ -69,11 +69,11 @@ export default function HomeHero({ settings }: { settings?: any }) {
               Explore the Collection
             </span>
           </a>
-        </motion.div>
+        </MotionDiv>
       </div>
 
       {/* Vertical Scroll Indicator */}
-      <motion.div 
+      <MotionDiv 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 2 }}
@@ -81,13 +81,13 @@ export default function HomeHero({ settings }: { settings?: any }) {
       >
         <span className="text-[10px] uppercase tracking-gallery text-charcoal/30 dark:text-white/30 font-sans [writing-mode:vertical-lr] transition-colors duration-700">Scroll</span>
         <div className="w-[1px] h-24 bg-charcoal/5 dark:bg-white/10 overflow-hidden relative transition-colors duration-700">
-          <motion.div 
+          <MotionDiv 
             animate={{ y: ["-100%", "100%"] }}
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
             className="w-full h-1/2 bg-primary/40"
           />
         </div>
-      </motion.div>
+      </MotionDiv>
     </section>
   );
 }

@@ -1,0 +1,14 @@
+{
+  "name": "hearts-creation",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-05-05",
+  "compatibility_flags": [ "nodejs_compat" ],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".open-next/.output/assets"
+  },
+  "vars": {
+    "NEXT_PUBLIC_SANITY_PROJECT_ID": "qr1teroj",
+    "NEXT_PUBLIC_SANITY_DATASET": "production"
+  }
+}

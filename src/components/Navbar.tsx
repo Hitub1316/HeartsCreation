@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { MotionDiv, AnimatePresence } from "@/components/ClientMotion";
 import Menu from "lucide-react/dist/esm/icons/menu";
 import X from "lucide-react/dist/esm/icons/x";
 import Image from "next/image";
@@ -94,7 +94,7 @@ export default function Navbar({
         {isMenuOpen && (
           <>
             {/* Backdrop */}
-            <motion.div
+            <MotionDiv
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -103,7 +103,7 @@ export default function Navbar({
             />
 
             {/* Side Drawer */}
-            <motion.div
+            <MotionDiv
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -123,7 +123,7 @@ export default function Navbar({
                 {navLinks.map((link, index) => {
                   const isActive = pathname === link.path;
                   return (
-                    <motion.li
+                    <MotionDiv
                       key={link.path}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -137,7 +137,7 @@ export default function Navbar({
                       >
                         {link.name}
                       </Link>
-                    </motion.li>
+                    </MotionDiv>
                   );
                 })}
               </ul>
@@ -146,7 +146,7 @@ export default function Navbar({
                 <p className="text-[10px] uppercase tracking-gallery text-charcoal/40 dark:text-white/40 mb-2">Heart's Creation</p>
                 <div className="w-8 h-px bg-primary/30"></div>
               </div>
-            </motion.div>
+            </MotionDiv>
           </>
         )}
       </AnimatePresence>

@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:cf": "npm install @opennextjs/cloudflare@latest --save-dev --legacy-peer-deps && npx @opennextjs/cloudflare build && (rm -rf .open-next/server-functions/default/node_modules/next/dist/compiled/@vercel/og || true) && npx esbuild .open-next/worker.js --bundle --minify --platform=browser --format=esm --target=es2022 --external:cloudflare:* --external:node:* --external:async_hooks --external:fs --external:path --external:os --external:url --external:vm --external:util --external:buffer --external:events --external:crypto --external:stream --external:http --external:https --external:zlib --external:querystring --external:assert --external:tls --external:tty --external:net --external:child_process --allow-overwrite --outfile=.open-next/worker.js && npx wrangler deploy --minify"
   },
   "dependencies": {
     "@portabletext/react": "^3.2.1",
@@ -25,14 +26,17 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^16.2.2",
+    "@opennextjs/cloudflare": "^1.18.0",
     "@types/node": "^22.13.10",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "autoprefixer": "^10.4.20",
+    "esbuild": "^0.17.19",
     "eslint": "^10.0.3",
     "eslint-config-next": "16.1.7",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "wrangler": "^3.111.0"
   }
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { MotionDiv } from "./ClientMotion";
 import Sun from "lucide-react/dist/esm/icons/sun";
 import Moon from "lucide-react/dist/esm/icons/moon";
 
@@ -17,7 +17,7 @@ export default function ThemeToggle({ theme, toggleTheme }: ThemeToggleProps) {
       aria-label="Toggle Theme"
     >
       {/* Sliding Pill */}
-      <motion.div
+      <MotionDiv
         className="absolute w-6 h-6 rounded-full bg-primary flex items-center justify-center shadow-sm z-10"
         initial={false}
         animate={{ 
@@ -30,7 +30,7 @@ export default function ThemeToggle({ theme, toggleTheme }: ThemeToggleProps) {
         ) : (
           <Sun className="w-3.5 h-3.5 text-white fill-white" />
         )}
-      </motion.div>
+      </MotionDiv>
 
       {/* Background Icons */}
       <div className="flex w-full justify-between items-center px-1 text-charcoal/20 dark:text-white/20">

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { MotionDiv } from "./ClientMotion";
 import { getApprovedReviews } from "@/sanity/lib/queries";
 
 export default function ReviewList() {
@@ -33,7 +33,7 @@ export default function ReviewList() {
   return (
     <div className="space-y-12">
       {reviews.map((review, index) => (
-        <motion.div
+        <MotionDiv
           key={review._id || index}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ export default function ReviewList() {
               </p>
             </div>
           </div>
-        </motion.div>
+        </MotionDiv>
       ))}
     </div>
   );

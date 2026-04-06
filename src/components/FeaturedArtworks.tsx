@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { MotionDiv, MotionH2 } from "./ClientMotion";
 import Link from "next/link";
 import { urlFor } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
@@ -91,7 +91,7 @@ export default function FeaturedArtworks({ sanityArtworks = [] }: { sanityArtwor
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
         
         <div className="flex flex-col items-start mb-16">
-          <motion.h2
+          <MotionH2
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -99,7 +99,7 @@ export default function FeaturedArtworks({ sanityArtworks = [] }: { sanityArtwor
             className="text-[10px] uppercase tracking-gallery text-charcoal/60 dark:text-white/60 mb-6 font-sans font-medium transition-colors duration-700"
           >
             Selected Works
-          </motion.h2>
+          </MotionH2>
           <div className="w-12 h-px bg-charcoal/20 dark:bg-white/20 transition-colors duration-700"></div>
         </div>
 
@@ -111,7 +111,7 @@ export default function FeaturedArtworks({ sanityArtworks = [] }: { sanityArtwor
               : artwork.image; 
 
             return (
-              <motion.div
+              <MotionDiv
                 key={artwork._id || artwork.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -158,7 +158,7 @@ export default function FeaturedArtworks({ sanityArtworks = [] }: { sanityArtwor
                     <span className="w-8 h-px bg-primary/30 transition-all duration-500 group-hover:w-12 group-hover:bg-primary"></span>
                   </Link>
                 </div>
-              </motion.div>
+              </MotionDiv>
             );
           })}
         </div>

@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { MotionDiv } from "@/components/ClientMotion";
 
 export default function SuccessPage() {
   return (
     <main className="min-h-screen text-charcoal dark:text-cream flex flex-col items-center justify-center px-6 selection:bg-wine/20 transition-colors duration-700">
-      <motion.div
+      <MotionDiv
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
@@ -37,7 +37,7 @@ export default function SuccessPage() {
         >
           Return to Collection
         </Link>
-      </motion.div>
+      </MotionDiv>
 
       {/* Subtle Background Accent */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

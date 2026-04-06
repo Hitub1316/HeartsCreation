@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { MotionDiv } from "./ClientMotion";
 import Image from "next/image";
 import { StaticImageData } from "next/image";
 import PageHeader from "./PageHeader";
@@ -14,7 +14,7 @@ interface AboutClientProps {
 
 export default function AboutClient({ tagline, arunimaImg, page }: AboutClientProps) {
   return (
-    <motion.div
+    <MotionDiv
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.2 }}
@@ -29,7 +29,7 @@ export default function AboutClient({ tagline, arunimaImg, page }: AboutClientPr
       <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:items-start pt-4 transition-colors duration-700">
         {/* Image Section - Framed Mat Look */}
         <div className="md:col-span-7">
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5, delay: 0.2 }}
@@ -44,12 +44,12 @@ export default function AboutClient({ tagline, arunimaImg, page }: AboutClientPr
                 priority
               />
             </div>
-          </motion.div>
+          </MotionDiv>
         </div>
 
         {/* Text Section - Staggered Monograph Style */}
         <div className="md:col-span-5 flex flex-col gap-16 pt-8 text-charcoal dark:text-cream transition-colors duration-700">
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
@@ -91,19 +91,19 @@ export default function AboutClient({ tagline, arunimaImg, page }: AboutClientPr
                  Originality &middot; Craftsmanship &middot; Timelessness
                </p>
             </div>
-          </motion.div>
+          </MotionDiv>
 
           {/* Subtle Footer Accent */}
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.2 }}
             className="text-[10px] uppercase tracking-gallery text-charcoal/40 dark:text-white/40 font-sans mt-8 font-medium transition-colors duration-700"
           >
             &mdash; Heart&apos;s Creation by Arunima
-          </motion.div>
+          </MotionDiv>
         </div>
       </div>
-    </motion.div>
+    </MotionDiv>
   );
 }

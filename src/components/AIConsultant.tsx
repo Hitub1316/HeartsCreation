@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { MotionDiv, AnimatePresence } from "./ClientMotion";
 import Search from "lucide-react/dist/esm/icons/search";
 import MessageSquare from "lucide-react/dist/esm/icons/message-square";
 import X from "lucide-react/dist/esm/icons/x";
@@ -86,7 +86,7 @@ export default function AIConsultant() {
       {/* Results/Chat Overlay */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -111,7 +111,7 @@ export default function AIConsultant() {
 
               {loading ? (
                 <div className="flex justify-center py-20">
-                  <motion.div 
+                  <MotionDiv 
                     animate={{ rotate: 360 }}
                     transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
                     className="w-8 h-8 border-2 border-wine border-t-transparent rounded-full"
@@ -120,7 +120,7 @@ export default function AIConsultant() {
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                   {results.map((art, idx) => (
-                    <motion.div
+                    <MotionDiv
                       key={art._id}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -136,12 +136,12 @@ export default function AIConsultant() {
                       </a>
                       <h3 className="text-xl font-serif mb-2">{art.title}</h3>
                       <p className="text-xs text-wine/80 italic font-sans leading-relaxed">{art.reason}</p>
-                    </motion.div>
+                    </MotionDiv>
                   ))}
                 </div>
               )}
             </div>
-          </motion.div>
+          </MotionDiv>
         )}
       </AnimatePresence>
     </>

@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { MotionDiv } from "./ClientMotion";
 
 export default function ContactForm() {
   return (
-    <motion.div
+    <MotionDiv
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.2, delay: 0.2 }}
@@ -71,6 +71,6 @@ export default function ContactForm() {
           </button>
         </div>
       </form>
-    </motion.div>
+    </MotionDiv>
   );
 }
