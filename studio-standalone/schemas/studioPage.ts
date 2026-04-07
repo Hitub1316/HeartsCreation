@@ -35,6 +35,12 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'email',
+      title: 'Contact Email',
+      type: 'string',
+      description: 'Primary email for inquiries on this page.',
+    }),
+    defineField({
       name: 'content',
       title: 'Content',
       type: 'array',
