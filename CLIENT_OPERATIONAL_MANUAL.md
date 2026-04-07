@@ -4,80 +4,62 @@ Welcome to your Boutique Studio. This guide is designed to empower you with full
 
 ---
 
-## 🌟 Strategic Recommendation: Your Role
-For the smoothest experience, your role in the system should be set to **"Editor"**. 
-- **Editor Role**: Grants you 100% control over Artworks, Reviews, and Site Settings.
-- **Why?**: It protects the technical structural "Developer" hooks while giving you full creative freedom.
-
----
-
 ## 🛡️ PHASE 1: Accessing the Studio
-
-1.  **Open your Browser**: Navigate to your dedicated studio link (provided by your developer).
-2.  **Authentication**: Click **"Sign In"**. 
-3.  **Permissions**: Use the email address you provided. 
-    > [!IMPORTANT]
-    > If you see an "Access Denied" message, please ensure your email is whitelisted in the Sanity Project Settings by your administrator.
+1.  **URL**: [https://heartscreation.sanity.studio/](https://heartscreation.sanity.studio/)
+2.  **Login**: Use the primary email address you provided for access.
 
 ---
 
-## 🖼️ PHASE 2: Managing your Art (Step-by-Step)
+## 🏛️ PHASE 2: Your Boutique Identity (Site Settings)
+This is the "Brain" of your boutique. Changes here update your global identity across the entire website.
 
-### How to Add a New Artwork:
-1.  **Select "Artwork"**: In the left-hand menu of the Studio.
-2.  **Click "+" (Create New)**: Located at the top right of the list.
-3.  **Title**: Enter the name of your piece (e.g., *Shiv k Nadi*).
-4.  **Upload Image**: Drag and drop your high-resolution painting image.
-5.  **Specs**:
-    - **Medium**: (e.g., *Acrylic on Canvas*)
-    - **Dimensions**: (e.g., *24 x 18 inches*)
-6.  **Description (The Story)**: Share the soul of the piece here using the text editor.
-7.  **Price**: Enter the amount in INR (Numbers only).
-8.  **Available Toggle**: Ensure it is switched **ON**. 
-9.  **The Master Rule (PUBLISH)**: 
-    > [!CAUTION]
-    > **Crucial Step**: After filling out the details, click the **GREEN "Publish"** button at the bottom. If it is only "Saved," it will **not** appear on your website.
+1.  **Navigate**: Click **"Site Settings"** in the left sidebar.
+2.  **Fields**:
+    - **WhatsApp Number**: Update this to change where customers reach you.
+    - **Shipping Address / City**: Update your shipping origin city (e.g., "Hyderabad"). 
+        - > [!NOTE] 
+        - > This blank space is automatically used to fill your **"Available at [City] ;"** text on the contact page and the **"Shipped from [City]"** text on all artworks. 🌍
+    - **Social Links**: Manage your Instagram, Etsy, Pinterest, and Facebook URLs here.
+3.  **To Save**: Click the green **"Publish"** button at the bottom right.
 
 ---
 
-### How to Mark a Piece as "Sold Out":
-1.  Find the artwork in the list.
-2.  Toggle the **"Available"** switch to **OFF**.
-3.  Click **"Publish"**. It will now display a "Sold" badge on the website.
+## 🎭 PHASE 3: Your Boutique Voice (Inquiry Page)
+This controls the unique "Contact" story and direct inquiry details for your boutique.
+
+1.  **Navigate**: Click **"Studio Pages"** -> then click the **"Inquiry"** document.
+2.  **Fields**:
+    - **Content**: Edit your mission statement or contact message. (e.g., *"Whether you seek a custom commission or wish to inquire about a gallery piece..."*)
+    - **Contact Email**: Update your direct boutique email (e.g., hello@heartscreation.com).
+3.  **To Save**: Click the green **"Publish"** button at the bottom right.
 
 ---
 
-## 🎭 PHASE 3: Patron Reflections (Reviews)
-
-Your website requires a **Two-Step Security Protocol** for reviews to keep your boutique premium.
-
-1.  **Notification**: You will see new entries under the **"Reviews"** tab in the studio.
-2.  **The Approval Toggle**: Click on the new review. Toggle the **"Approved"** switch to **ON**.
-3.  **The Final Step**: Click the **GREEN "Publish"** button.
-    - *Why?*: Even if "Approved" is ON, the website won't see it until you "Publish" the change.
-
----
-
-## 🏗️ PHASE 4: Studio Settings (Logistics)
-
-You can update your studio's operational heart under the **"Site Settings"** tab.
-
-1.  **Shipping Origin**: Update this to "Hyderabad" (or any new location). This updates the text on every single artwork page instantly.
-2.  **WhatsApp Number**: Update the number where you'll receive purchase inquiries.
-3.  **Global Logo**: You can swap your Light/Dark logos here if you ever rebrand.
-4.  **Remember**: Always click **"Publish"** after any setting change.
+## 🖼️ PHASE 4: Curating Your Artworks
+1.  **Navigate**: Click **"Artworks"** in the left sidebar.
+2.  **Adding New Art**: Click the **plus (+)** icon.
+    - **Title**: The name of your piece.
+    - **Medium**: (e.g., "Acrylic on Canvas").
+    - **Dimensions**: (e.g., "24” by 24”").
+    - **Story**: The inspiration or "soul" behind the piece.
+    - **Price**: Entered in INR (₹).
+3.  **Marking as SOLD**: 
+    - Open the artwork.
+    - Scroll to **"Available"** and toggle it **OFF**.
+    - Click **"Publish"**.
 
 ---
 
-## 🔍 Troubleshooting 101
+## 📝 PHASE 5: Moderating Reviews
+Your website only shows reviews that you have explicitly approved.
 
-- **"I changed something but it's not on the site!"**
-  - Check the Studio. Is the button at the bottom **Green** and does it say "Published"? 
-  - If it says "Draft" or "Changes not published," click it!
-- **"Reviews are still not showing up!"**
-  - Ensure you have **Published** the review *after* toggling the "Approved" switch.
-  - Clear your browser cache or refresh the website twice.
+1.  **Navigate**: Click **"Reviews"**.
+2.  **Approval Protocol**:
+    - Open the review.
+    - Toggle **"Approved"** to **ON**.
+    - **IMPORTANT**: You must click the green **"Publish"** button for it to appear live on the site. 🛡️ ✨
 
 ---
 
-*This boutique is your journey. If you need structural changes, contact your technical partner. Otherwise, the art is yours to lead.* 🥂📈✅
+## 🚀 The Gold Rule: THE GREEN BUTTON
+No change—whether it's an artwork price, a new review, or an address change—will appear on your website until you click the **"Publish"** button at the bottom right of the page. 🏹🎯🛡️

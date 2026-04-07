@@ -26,16 +26,16 @@ export default function ContactInfo({ settings, page }: { settings: any; page?: 
         {/* General Inquiries */}
         <div className="group space-y-3">
           <h3 className="text-[10px] uppercase tracking-gallery text-charcoal/40 dark:text-white/40 font-medium transition-colors duration-700">Direct</h3>
-          <a href={`mailto:${settings?.email || "hello@heartscreation.com"}`} className="text-xl md:text-2xl font-serif italic text-charcoal dark:text-cream hover:text-primary transition-all duration-700 font-medium block">
-            {settings?.email || "hello@heartscreation.com"}
+          <a href={`mailto:${page?.email || settings?.email || "hello@heartscreation.com"}`} className="text-xl md:text-2xl font-serif italic text-charcoal dark:text-cream hover:text-primary transition-all duration-700 font-medium block">
+            {page?.email || settings?.email || "hello@heartscreation.com"}
           </a>
         </div>
 
-        {/* Studio Visit */}
+        {/* Studio Visit / Logistics */}
         <div className="group space-y-3">
           <h3 className="text-[10px] uppercase tracking-gallery text-charcoal/40 dark:text-white/40 font-medium transition-colors duration-700">Studio</h3>
           <p className="text-lg md:text-xl font-serif italic text-charcoal/90 dark:text-cream/90 leading-relaxed max-w-xs mx-auto font-medium transition-colors duration-700">
-            {settings?.address || "By appointment in Hyderabad."}
+            Available at {settings?.shippingAddress || "Hyderabad"} ;
           </p>
         </div>
 
@@ -64,6 +64,12 @@ export default function ContactInfo({ settings, page }: { settings: any; page?: 
             )}
             {settings?.etsyUrl && (
               <a href={settings.etsyUrl} target="_blank" className="hover:opacity-60 transition-opacity">Etsy</a>
+            )}
+            {settings?.pinterestUrl && (
+              <a href={settings.pinterestUrl} target="_blank" className="hover:opacity-60 transition-opacity">Pinterest</a>
+            )}
+            {settings?.facebookUrl && (
+              <a href={settings.facebookUrl} target="_blank" className="hover:opacity-60 transition-opacity">Facebook</a>
             )}
           </div>
         </div>

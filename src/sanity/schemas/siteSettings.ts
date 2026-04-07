@@ -28,40 +28,16 @@ export default {
       of: [{ type: "reference", to: [{ type: "artwork" }] }],
     },
     {
-      name: "contactHeading",
-      title: "Contact Page Heading",
-      type: "string",
-      initialValue: "Contact",
-    },
-    {
-      name: "contactDescription",
-      title: "Contact Page Description",
-      type: "text",
-      initialValue: "Get in touch with us for inquiries, collaborations, or studio visits.",
-    },
-    {
-      name: "email",
-      title: "Email Address",
-      type: "string",
-      initialValue: "hello@heartscreation.com",
-    },
-    {
       name: "whatsappNumber",
       title: "WhatsApp Number",
       type: "string",
       initialValue: "+91 80550 69122",
     },
     {
-      name: "address",
-      title: "Studio Address / Location",
+      name: "shippingAddress",
+      title: "Shipping Address / City",
       type: "string",
-      initialValue: "Hyderabad, India.",
-    },
-    {
-      name: "shippingOrigin",
-      title: "Shipping Origin / City",
-      type: "string",
-      description: "The city from which artworks are shipped (e.g., Hyderabad).",
+      description: "The city from which artworks are shipped (e.g., Hyderabad). This reflects on the Contact Page and Artwork bottom text.",
       initialValue: "Hyderabad",
     },
     {

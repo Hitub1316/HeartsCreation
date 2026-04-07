@@ -178,7 +178,7 @@ export default async function ShopItem({ params }: { params: Promise<{ slug: str
             </a>
 
             <p className="text-center text-[10px] uppercase tracking-widest text-charcoal/30 dark:text-white/30 transition-colors duration-700">
-              Worldwide shipping available. Shipped from {settings?.shippingOrigin || "Hyderabad"}.
+              Worldwide shipping available. Shipped from {settings?.shippingAddress || "Hyderabad"}.
             </p>
           </div>
         </div>
