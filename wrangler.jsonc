@@ -5,7 +5,7 @@
   "compatibility_flags": [ "nodejs_compat" ],
   "assets": {
     "binding": "ASSETS",
-    "directory": ".open-next/.output/assets"
+    "directory": ".open-next/assets"
   },
   "vars": {
     "NEXT_PUBLIC_SANITY_PROJECT_ID": "qr1teroj",
