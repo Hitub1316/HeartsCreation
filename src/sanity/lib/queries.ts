@@ -101,8 +101,9 @@ export async function getBlogPostBySlug(slug: string) {
 // Get all approved reviews
 export async function getApprovedReviews() {
   const timestamp = new Date().getTime();
+  // We explicitly include $ts in a dummy filter to force the Sanity API to treat every request as unique
   return client.fetch(`
-    *[_type == "review" && approved == true] | order(date desc, _createdAt desc) {
+    *[_type == "review" && approved == true && defined($ts)] | order(date desc, _createdAt desc) {
       _id,
       name,
       content,

@@ -12,7 +12,14 @@ export default function ReviewList() {
     async function fetchReviews() {
       try {
         const data = await getApprovedReviews();
-        console.log("Reviews received from Studio:", data);
+        // LOGGING DNA: Verify these values match your Sanity Studio Dashboard
+        console.log("[SANITY SYNC CHECK]", {
+          projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'qr1teroj',
+          dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+          timestamp: new Date().getTime(),
+          dataLength: data?.length || 0,
+          data: data
+        });
         setReviews(data || []);
       } catch (err) {
         console.error("Failed to fetch reviews:", err);
