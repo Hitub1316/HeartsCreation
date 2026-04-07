@@ -5,7 +5,6 @@ import Menu from "lucide-react/dist/esm/icons/menu";
 import X from "lucide-react/dist/esm/icons/x";
 import Image from "next/image";
 import Link from "next/link";
-import logoImg from "@/assets/logo.jpg";
 import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
@@ -39,7 +38,7 @@ export default function Navbar({
               className="w-10 h-10 md:w-12 md:h-12 relative rounded-full overflow-hidden border whisper-border dark:border-white/10 hover:scale-105 transition-transform duration-700 shadow-sm"
             >
               <Image
-                src={logoImg}
+                src={theme === 'dark' ? '/logo-dark.png' : '/logo-light.jpg'}
                 alt="Logo"
                 fill
                 className="object-cover"

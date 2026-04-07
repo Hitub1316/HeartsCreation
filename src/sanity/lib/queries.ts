@@ -101,12 +101,13 @@ export async function getBlogPostBySlug(slug: string) {
 // Get all approved reviews
 export async function getApprovedReviews() {
   return client.fetch(`
-    *[_type == "review" && approved == true] | order(date desc) {
+    *[_type == "review" && approved == true] | order(date desc, _createdAt desc) {
       _id,
       name,
       content,
       rating,
-      date
+      date,
+      _createdAt
     }
   `, {}, {
     cache: 'no-store',
