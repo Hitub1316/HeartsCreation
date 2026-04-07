@@ -36,5 +36,13 @@ This document defines the decoupled architecture designed for high performance a
 
 ---
 
-## 🏗️ Deployment Strategy
-We maintain a **Clean Storefront** by keeping the heavy `@sanity` editor packages out of the root production bundle. This ensures the storefront remains under the 3MB worker limit.
+## 🏗️ Deployment Strategy: The "Zero-Lag" Boutique ⚡🛡️
+We maintain a **Clean Storefront** by keeping the heavy `@sanity` editor packages out of the root production bundle. All animations are surgically refactored to **dynamic client-side imports**, ensuring the Worker remains lean.
+
+### 📜 Post-Migration Checklist
+- [x] **Architecture**: Studio decoupled to managed hosting.
+- [x] **Optimization**: Full SSR-Safe Motion Migration (~88KB Server Function).
+- [x] **Git Sync**: All structural changes pushed to `main`.
+- [ ] **Cloudflare Logs**: Monitor the first live deployment for any 1101 regressions.
+- [ ] **Stripe Check**: Verify successful checkout from the live storefront.
+- [ ] **DNS Sync**: Finalize domain pointing to `heartscreation.in`.
