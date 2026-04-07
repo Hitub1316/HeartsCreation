@@ -1,63 +1,83 @@
-# Hearts Creation | Client Operational Manual 🥂🎯
+# 🎨 Heart's Creation - Client Operational Manual
 
-Welcome to the definitive guide for managing your premium art boutique, **Hearts Creation**. This document outlines every functionality of your digital platform and provides a step-by-step masterclass on using **Sanity.io** to manage your content.
-
----
-
-## 1. Website Overview 🌍
-
-The Hearts Creation website is built on a high-performance **Next.js** framework, synchronized in real-time with your **Sanity Studio**.
-
-### Core Sections:
-- **Home**: Featuring your signature color-changing cinematic background video and **Featured Artworks**.
-- **Shop**: An organized gallery of your creations, filtered by category.
-- **About / Studio**: Evocative editorial pages describing the heart of Arunima's laboratory.
-- **Contact**: A streamlined interface for bespoke inquiries and studio connection.
-- **Patron Reflections**: A curated guestbook where your audience shares their sensations.
+Welcome to your Boutique Studio. This guide is designed to empower you with full command over your digital gallery. 🥂✨
 
 ---
 
-## 2. Managing Content via Sanity.io 🎭
-
-Your **Sanity Studio** is the command center of your boutique. Every change made here reflects on the website once "Published."
-
-### A. Managing Artworks (`artwork`)
-- **Adding New Art**: Click the `+` icon under "Artworks." Provide a title, slug (URL name), and high-resolution images.
-- **Featured Art**: Toggle the **"Featured"** switch to `ON` to display the artwork on the homepage showcase.
-- **Availability**: Toggle **"Available"** to `OFF` to automatically mark an artwork as **SOLD OUT** on the frontend.
-- **Details**: Ensure you specify the **Price, Size, and Medium** for a premium shopping experience.
-
-### B. Organizing the Gallery (`category`)
-- Artworks are grouped by Categories (e.g., *Canvas*, *Vapor*, *Vivid*).
-- You can create new categories and assign multiple artworks to them to organize your shop.
-
-### C. The Guestbook: Moderating Reviews (`review`) 📉⚡
-> [!IMPORTANT]
-> **The Two-Step Approval Protocol**:
-> To protect the integrity of your brand, all reviews follow a strict synchronization protocol:
-> 1. **The Approval Toggle**: Inside a specific review document, you MUST switch **"Approved by Admin"** to **ON**.
-> 2. **The Publishing Action**: You MUST then click the **"Publish"** button at the bottom of the studio. 
-> 
-> *Without BOTH actions, the review will remain invisible to your patrons.*
-
-### D. Strategic Logistics & Address (`siteSettings`) 🌍
-Managed via the **Site Settings** (Singleton) document:
-- **Shipping Origin**: Update this field (e.g., "Hyderabad") to instantly change the shipping info across all artwork pages and SEO tags.
-- **Studio Address**: Manage the primary contact address used in the website footer and contact section.
-- **Social Links**: Update your Instagram and other touchpoints globally.
-
-### E. Legal & Editorial Content (`legal`, `studioPage`)
-- Use the **Legal Pages** document to manage your Terms of Service and Shipping Policies.
-- Use the **Studio Pages** document to update the narrative content of your "About" or "Laboratory" sections.
+## 🌟 Strategic Recommendation: Your Role
+For the smoothest experience, your role in the system should be set to **"Editor"**. 
+- **Editor Role**: Grants you 100% control over Artworks, Reviews, and Site Settings.
+- **Why?**: It protects the technical structural "Developer" hooks while giving you full creative freedom.
 
 ---
 
-## 3. Best Practices for Excellence 🛡️💎
+## 🛡️ PHASE 1: Accessing the Studio
 
-- **Drafts vs. Published**: Changes are saved locally as "Drafts." They will NOT appear on the website until you click the **Publish** button.
-- **Image Quality**: Always upload high-resolution `.jpg` or `.png` files. Sanity automatically optimizes these for mobile and desktop performance.
-- **Synchronicity**: If changes aren't appearing instantly, ensure you have clicked **Publish** and refreshed your browser.
+1.  **Open your Browser**: Navigate to your dedicated studio link (provided by your developer).
+2.  **Authentication**: Click **"Sign In"**. 
+3.  **Permissions**: Use the email address you provided. 
+    > [!IMPORTANT]
+    > If you see an "Access Denied" message, please ensure your email is whitelisted in the Sanity Project Settings by your administrator.
 
 ---
 
-*Manual synthesized by Hearts Creation Engineering Team.* 🥂🚀📈✅
+## 🖼️ PHASE 2: Managing your Art (Step-by-Step)
+
+### How to Add a New Artwork:
+1.  **Select "Artwork"**: In the left-hand menu of the Studio.
+2.  **Click "+" (Create New)**: Located at the top right of the list.
+3.  **Title**: Enter the name of your piece (e.g., *Shiv k Nadi*).
+4.  **Upload Image**: Drag and drop your high-resolution painting image.
+5.  **Specs**:
+    - **Medium**: (e.g., *Acrylic on Canvas*)
+    - **Dimensions**: (e.g., *24 x 18 inches*)
+6.  **Description (The Story)**: Share the soul of the piece here using the text editor.
+7.  **Price**: Enter the amount in INR (Numbers only).
+8.  **Available Toggle**: Ensure it is switched **ON**. 
+9.  **The Master Rule (PUBLISH)**: 
+    > [!CAUTION]
+    > **Crucial Step**: After filling out the details, click the **GREEN "Publish"** button at the bottom. If it is only "Saved," it will **not** appear on your website.
+
+---
+
+### How to Mark a Piece as "Sold Out":
+1.  Find the artwork in the list.
+2.  Toggle the **"Available"** switch to **OFF**.
+3.  Click **"Publish"**. It will now display a "Sold" badge on the website.
+
+---
+
+## 🎭 PHASE 3: Patron Reflections (Reviews)
+
+Your website requires a **Two-Step Security Protocol** for reviews to keep your boutique premium.
+
+1.  **Notification**: You will see new entries under the **"Reviews"** tab in the studio.
+2.  **The Approval Toggle**: Click on the new review. Toggle the **"Approved"** switch to **ON**.
+3.  **The Final Step**: Click the **GREEN "Publish"** button.
+    - *Why?*: Even if "Approved" is ON, the website won't see it until you "Publish" the change.
+
+---
+
+## 🏗️ PHASE 4: Studio Settings (Logistics)
+
+You can update your studio's operational heart under the **"Site Settings"** tab.
+
+1.  **Shipping Origin**: Update this to "Hyderabad" (or any new location). This updates the text on every single artwork page instantly.
+2.  **WhatsApp Number**: Update the number where you'll receive purchase inquiries.
+3.  **Global Logo**: You can swap your Light/Dark logos here if you ever rebrand.
+4.  **Remember**: Always click **"Publish"** after any setting change.
+
+---
+
+## 🔍 Troubleshooting 101
+
+- **"I changed something but it's not on the site!"**
+  - Check the Studio. Is the button at the bottom **Green** and does it say "Published"? 
+  - If it says "Draft" or "Changes not published," click it!
+- **"Reviews are still not showing up!"**
+  - Ensure you have **Published** the review *after* toggling the "Approved" switch.
+  - Clear your browser cache or refresh the website twice.
+
+---
+
+*This boutique is your journey. If you need structural changes, contact your technical partner. Otherwise, the art is yours to lead.* 🥂📈✅
