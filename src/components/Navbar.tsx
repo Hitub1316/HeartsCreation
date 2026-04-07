@@ -38,6 +38,7 @@ export default function Navbar({
               className="w-10 h-10 md:w-12 md:h-12 relative rounded-full overflow-hidden border whisper-border dark:border-white/10 hover:scale-105 transition-transform duration-700 shadow-sm"
             >
               <Image
+                key={theme}
                 src={theme === 'dark' ? '/Dark%20logo.png' : '/logo.jpg'}
                 alt="Logo"
                 fill
