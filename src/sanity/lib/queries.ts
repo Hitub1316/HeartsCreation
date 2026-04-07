@@ -108,7 +108,10 @@ export async function getApprovedReviews() {
       rating,
       date
     }
-  `);
+  `, {}, {
+    cache: 'no-store',
+    next: { revalidate: 0 }
+  });
 }
 
 // Get site settings (Singleton)
