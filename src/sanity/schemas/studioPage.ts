@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity'
+import { defineField, defineType, type Rule } from 'sanity'
 
 export default defineType({
   name: 'studioPage',
@@ -9,7 +9,7 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: (Rule) => Rule.required(),
+      validation: (rule: Rule) => rule.required(),
     }),
     defineField({
       name: 'slug',
@@ -19,7 +19,7 @@ export default defineType({
         source: 'title',
         maxLength: 96,
       },
-      validation: (Rule) => Rule.required(),
+      validation: (rule: Rule) => rule.required(),
     }),
     defineField({
       name: 'subtitle',
@@ -33,6 +33,12 @@ export default defineType({
       options: {
         hotspot: true,
       },
+    }),
+    defineField({
+      name: 'email',
+      title: 'Contact Email',
+      type: 'string',
+      description: 'Primary email for inquiries on this page.',
     }),
     defineField({
       name: 'content',
