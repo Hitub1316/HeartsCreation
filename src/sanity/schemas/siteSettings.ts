@@ -55,7 +55,14 @@ export default {
       name: "address",
       title: "Studio Address / Location",
       type: "string",
-      initialValue: "Available by appointment in New Delhi, India.",
+      initialValue: "Hyderabad, India.",
+    },
+    {
+      name: "shippingOrigin",
+      title: "Shipping Origin / City",
+      type: "string",
+      description: "The city from which artworks are shipped (e.g., Hyderabad).",
+      initialValue: "Hyderabad",
     },
     {
       name: "instagramUrl",

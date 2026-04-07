@@ -12,6 +12,7 @@ export default function ReviewList() {
     async function fetchReviews() {
       try {
         const data = await getApprovedReviews();
+        console.log("Reviews received from Studio:", data);
         setReviews(data || []);
       } catch (err) {
         console.error("Failed to fetch reviews:", err);

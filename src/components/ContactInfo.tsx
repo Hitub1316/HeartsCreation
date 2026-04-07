@@ -35,7 +35,7 @@ export default function ContactInfo({ settings, page }: { settings: any; page?: 
         <div className="group space-y-3">
           <h3 className="text-[10px] uppercase tracking-gallery text-charcoal/40 dark:text-white/40 font-medium transition-colors duration-700">Studio</h3>
           <p className="text-lg md:text-xl font-serif italic text-charcoal/90 dark:text-cream/90 leading-relaxed max-w-xs mx-auto font-medium transition-colors duration-700">
-            {settings?.address || "By appointment in New Delhi."}
+            {settings?.address || "By appointment in Hyderabad."}
           </p>
         </div>
 

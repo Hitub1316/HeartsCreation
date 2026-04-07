@@ -22,8 +22,8 @@ export const metadata: Metadata = {
     default: "Hearts Creation | Original Handcrafted Art by Arunima",
     template: "%s | Hearts Creation"
   },
-  description: "Explore exquisite handcrafted art, acrylic paintings, and mixed media works by Arunima. Boutique art studio based in New Delhi, shipping worldwide.",
-  keywords: ["Handcrafted Art", "Arunima Art", "Acrylic Paintings", "Mixed Media", "Custom Art Commissions", "New Delhi Artist"],
+  description: "Explore exquisite handcrafted art, acrylic paintings, and mixed media works by Arunima. Boutique art studio based in Hyderabad, shipping worldwide.",
+  keywords: ["Handcrafted Art", "Arunima Art", "Acrylic Paintings", "Mixed Media", "Custom Art Commissions", "Hyderabad Artist"],
   authors: [{ name: "Arunima" }],
   creator: "Arunima",
   publisher: "Hearts Creation",
