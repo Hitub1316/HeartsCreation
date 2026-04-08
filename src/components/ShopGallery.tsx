@@ -39,7 +39,7 @@ const dummyArtworks = [
 ];
 
 function CategorySection({ category, index }: { category: any, index: number }) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const artworks = category.artworks || [];
 
   if (artworks.length === 0) return null;
@@ -52,7 +52,6 @@ function CategorySection({ category, index }: { category: any, index: number }) 
         className="w-full flex items-end justify-between py-8 group mb-8 border-b border-charcoal/5 dark:border-white/5 transition-colors duration-700"
       >
         <div className="flex flex-col items-start gap-3">
-          <span className="text-[10px] uppercase tracking-gallery text-charcoal/60 dark:text-white/60 font-sans font-medium transition-colors duration-700">Collection {index + 1}</span>
           <h2 className="text-4xl md:text-5xl font-serif italic font-light text-charcoal dark:text-cream group-hover:text-primary transition-all duration-700 tracking-tight">
             {category.name}
           </h2>
