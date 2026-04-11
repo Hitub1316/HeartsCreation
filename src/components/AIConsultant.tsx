@@ -10,54 +10,29 @@ import ArrowRight from "lucide-react/dist/esm/icons/arrow-right";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/client";
 import { client } from "@/sanity/lib/client";
+import Script from "next/script";
 
-function OrbitalRing({ images = [] }: { images: string[] }) {
-  // Use 8 slots, filled with real images or placeholders
-  const displayImages = images.length > 0 ? images : Array(8).fill(null);
-  
+// Declare hana-viewer for TypeScript
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'hana-viewer': any;
+    }
+  }
+}
+
+function HanaDiscovery() {
   return (
-    <div className="relative w-full h-[300px] flex items-center justify-center [perspective:1200px] overflow-hidden">
-      <MotionDiv
-        animate={{ 
-          rotateY: 360,
-          rotateX: [15, 20, 15],
-          rotateZ: [-5, -8, -5]
-        }}
-        transition={{ 
-          rotateY: { duration: 20, repeat: Infinity, ease: "linear" },
-          rotateX: { duration: 5, repeat: Infinity, ease: "easeInOut" },
-          rotateZ: { duration: 7, repeat: Infinity, ease: "easeInOut" }
-        }}
-        className="relative w-32 h-40 [transform-style:preserve-3d]"
-      >
-        {displayImages.slice(0, 8).map((imgUrl, i) => {
-          const angle = i * 45; // 360/8
-          return (
-            <MotionDiv
-              key={i}
-              className="absolute inset-0 bg-white/5 dark:bg-charcoal/10 backdrop-blur-md border border-white/20 dark:border-white/5 rounded-sm shadow-2xl overflow-hidden [backface-visibility:hidden]"
-              style={{
-                transform: `rotateY(${angle}deg) translateZ(180px)`,
-              }}
-            >
-              <div className="relative w-full h-full">
-                {imgUrl ? (
-                  <img 
-                    src={imgUrl} 
-                    alt="Art orbital" 
-                    className="w-full h-full object-cover opacity-80 grayscale-[30%] hover:grayscale-0 transition-all duration-700" 
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-wine/10 to-transparent">
-                    <Sparkles className="w-6 h-6 text-white/10" />
-                  </div>
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 to-transparent pointer-events-none" />
-              </div>
-            </MotionDiv>
-          );
-        })}
-      </MotionDiv>
+    <div className="relative w-full h-[400px] flex items-center justify-center overflow-hidden">
+      <Script 
+        src="https://cdn.spline.design/@splinetool/hana-viewer@1.2.51/hana-viewer.js" 
+        type="module"
+        strategy="afterInteractive"
+      />
+      <hana-viewer 
+        url="https://prod.spline.design/6sDAEZMPUKQoF0cn-cWp/scene.hanacode"
+        style={{ width: '100%', height: '100%' }}
+      ></hana-viewer>
     </div>
   );
 }
@@ -182,8 +157,8 @@ export default function AIConsultant() {
               </div>
 
               {loading ? (
-                <div className="flex justify-center py-10">
-                  <OrbitalRing images={sampleArtworks} />
+                <div className="flex justify-center py-2">
+                  <HanaDiscovery />
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
