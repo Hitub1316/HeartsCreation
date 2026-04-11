@@ -11,49 +11,52 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/client";
 import { client } from "@/sanity/lib/client";
 
-function ShufflingCards({ images = [] }: { images: string[] }) {
-  // Fallback to placeholders if no images provided
-  const displayImages = images.length > 0 ? images : [null, null, null, null, null];
+function OrbitalRing({ images = [] }: { images: string[] }) {
+  // Use 8 slots, filled with real images or placeholders
+  const displayImages = images.length > 0 ? images : Array(8).fill(null);
   
   return (
-    <div className="relative w-32 h-40 flex items-center justify-center">
-      {displayImages.slice(0, 5).map((imgUrl, i) => (
-        <MotionDiv
-          key={i}
-          className="absolute inset-0 bg-cream dark:bg-charcoal border border-charcoal/10 dark:border-white/10 rounded-sm shadow-sm overflow-hidden"
-          style={{ 
-            zIndex: 5 - i,
-          }}
-          animate={{
-            x: [0, 90 * (i === 0 ? 1 : 0), 0],
-            rotate: [i * 2 - 4, i * 2 + 5, i * 2 - 4],
-            scale: [1, 0.95, 1],
-            zIndex: [5 - i, 0, 5 - i],
-          }}
-          transition={{
-            duration: 1.0, // Brisk natural tempo
-            repeat: Infinity,
-            delay: i * 0.2, // Staggered shuffle
-            ease: [0.22, 1, 0.36, 1],
-          }}
-        >
-          {imgUrl ? (
-            <img 
-              src={imgUrl} 
-              alt="Art shuffling" 
-              className="w-full h-full object-cover opacity-60 dark:opacity-40 grayscale-[20%] group-hover:grayscale-0 transition-all duration-700" 
-            />
-          ) : (
-            <div className="w-full h-full bg-charcoal/5 dark:bg-white/5" />
-          )}
-        </MotionDiv>
-      ))}
+    <div className="relative w-full h-[300px] flex items-center justify-center [perspective:1200px] overflow-hidden">
       <MotionDiv
-        animate={{ opacity: [0.3, 0.6, 0.3] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute inset-0 flex items-center justify-center pointer-events-none"
+        animate={{ 
+          rotateY: 360,
+          rotateX: [15, 20, 15],
+          rotateZ: [-5, -8, -5]
+        }}
+        transition={{ 
+          rotateY: { duration: 20, repeat: Infinity, ease: "linear" },
+          rotateX: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+          rotateZ: { duration: 7, repeat: Infinity, ease: "easeInOut" }
+        }}
+        className="relative w-32 h-40 [transform-style:preserve-3d]"
       >
-        <div className="w-8 h-8 rounded-full border border-charcoal/5 dark:border-white/5 bg-charcoal/2 dark:bg-white/2" />
+        {displayImages.slice(0, 8).map((imgUrl, i) => {
+          const angle = i * 45; // 360/8
+          return (
+            <MotionDiv
+              key={i}
+              className="absolute inset-0 bg-white/5 dark:bg-charcoal/10 backdrop-blur-md border border-white/20 dark:border-white/5 rounded-sm shadow-2xl overflow-hidden [backface-visibility:hidden]"
+              style={{
+                transform: `rotateY(${angle}deg) translateZ(180px)`,
+              }}
+            >
+              <div className="relative w-full h-full">
+                {imgUrl ? (
+                  <img 
+                    src={imgUrl} 
+                    alt="Art orbital" 
+                    className="w-full h-full object-cover opacity-80 grayscale-[30%] hover:grayscale-0 transition-all duration-700" 
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-wine/10 to-transparent">
+                    <Sparkles className="w-6 h-6 text-white/10" />
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 to-transparent pointer-events-none" />
+              </div>
+            </MotionDiv>
+          );
+        })}
       </MotionDiv>
     </div>
   );
@@ -75,9 +78,9 @@ export default function AIConsultant() {
         const data = await client.fetch(query);
         const urls = data.map((item: any) => item.imageUrl).filter(Boolean);
         
-        // Randomize 5 for this session
+        // Randomize 8 for this session
         const shuffled = [...urls].sort(() => 0.5 - Math.random());
-        setSampleArtworks(shuffled.slice(0, 5));
+        setSampleArtworks(shuffled.slice(0, 8));
       } catch (err) {
         console.error("Failed to fetch shuffle samples:", err);
       }
@@ -179,8 +182,8 @@ export default function AIConsultant() {
               </div>
 
               {loading ? (
-                <div className="flex justify-center py-20">
-                  <ShufflingCards images={sampleArtworks} />
+                <div className="flex justify-center py-10">
+                  <OrbitalRing images={sampleArtworks} />
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
