@@ -11,28 +11,31 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/client";
 import { client } from "@/sanity/lib/client";
 import Script from "next/script";
+import Spline from "@splinetool/react-spline";
 
-// Declare hana-viewer for TypeScript
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'hana-viewer': any;
-    }
-  }
-}
+function SplineDiscovery({ images = [] }: { images: string[] }) {
+  const onLoad = (spline: any) => {
+    // Inject real artworks into the 8 card slots in the Spline scene
+    images.forEach((imgUrl, i) => {
+      const cardName = `card_${i + 1}`;
+      const obj = spline.findObjectByName(cardName);
+      
+      if (obj && obj.material && obj.material.layers) {
+        // Find the texture layer to update its image
+        const textureLayer = obj.material.layers.find((l: any) => l.type === 'texture');
+        if (textureLayer) {
+          textureLayer.updateTexture(imgUrl);
+        }
+      }
+    });
+  };
 
-function HanaDiscovery() {
   return (
     <div className="relative w-full h-[400px] flex items-center justify-center overflow-hidden">
-      <Script 
-        src="https://cdn.spline.design/@splinetool/hana-viewer@1.2.51/hana-viewer.js" 
-        type="module"
-        strategy="afterInteractive"
+      <Spline 
+        scene="https://prod.spline.design/B6iGDQ3D7thpUWMrXO9Wl4c4-MB5/scene.splinecode"
+        onLoad={onLoad}
       />
-      <hana-viewer 
-        url="https://prod.spline.design/6sDAEZMPUKQoF0cn-cWp/scene.hanacode"
-        style={{ width: '100%', height: '100%' }}
-      ></hana-viewer>
     </div>
   );
 }
@@ -158,7 +161,7 @@ export default function AIConsultant() {
 
               {loading ? (
                 <div className="flex justify-center py-2">
-                  <HanaDiscovery />
+                  <SplineDiscovery images={sampleArtworks} />
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
