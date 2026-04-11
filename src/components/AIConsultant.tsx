@@ -11,7 +11,14 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/client";
 import { client } from "@/sanity/lib/client";
 import Script from "next/script";
-import Spline from "@splinetool/react-spline";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+
+// Lazy load Spline to prevent SSR buffer issues and Turbopack conflicts
+const Spline = dynamic(() => import("@splinetool/react-spline"), { 
+  ssr: false,
+  loading: () => <div className="animate-pulse bg-charcoal/5 dark:bg-white/5 w-full h-full rounded-sm" />
+});
 
 function SplineDiscovery({ images = [] }: { images: string[] }) {
   const onLoad = (spline: any) => {
@@ -32,10 +39,12 @@ function SplineDiscovery({ images = [] }: { images: string[] }) {
 
   return (
     <div className="relative w-full h-[400px] flex items-center justify-center overflow-hidden">
-      <Spline 
-        scene="https://prod.spline.design/B6iGDQ3D7thpUWMrXO9Wl4c4-MB5/scene.splinecode"
-        onLoad={onLoad}
-      />
+      <Suspense fallback={<div className="animate-pulse bg-charcoal/5 dark:bg-white/5 w-full h-full rounded-sm" />}>
+        <Spline 
+          scene="https://prod.spline.design/662aa90a-c36a-47c5-83f9-9b518546099f/scene.splinecode"
+          onLoad={onLoad}
+        />
+      </Suspense>
     </div>
   );
 }
