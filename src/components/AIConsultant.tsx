@@ -9,6 +9,41 @@ import Sparkles from "lucide-react/dist/esm/icons/sparkles";
 import ArrowRight from "lucide-react/dist/esm/icons/arrow-right";
 import Image from "next/image";
 
+function ShufflingCards() {
+  return (
+    <div className="relative w-32 h-40 flex items-center justify-center">
+      {[0, 1, 2].map((i) => (
+        <MotionDiv
+          key={i}
+          className="absolute inset-0 bg-cream/80 dark:bg-charcoal/20 border border-charcoal/10 dark:border-white/10 rounded-sm shadow-sm"
+          style={{ 
+            zIndex: 3 - i,
+          }}
+          animate={{
+            x: [0, 80 * (i === 0 ? 1 : 0), 0],
+            rotate: [i * 2, i * 2 + 5, i * 2],
+            scale: [1, 0.95, 1],
+            zIndex: [3 - i, 0, 3 - i],
+          }}
+          transition={{
+            duration: 1.2,
+            repeat: Infinity,
+            delay: i * 0.4,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+        />
+      ))}
+      <MotionDiv
+        animate={{ opacity: [0.3, 0.6, 0.3] }}
+        transition={{ repeat: Infinity, duration: 2 }}
+        className="absolute inset-0 flex items-center justify-center"
+      >
+        <div className="w-8 h-8 rounded-full border border-charcoal/5 dark:border-white/5 bg-charcoal/2 dark:bg-white/2" />
+      </MotionDiv>
+    </div>
+  );
+}
+
 export default function AIConsultant() {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -111,11 +146,7 @@ export default function AIConsultant() {
 
               {loading ? (
                 <div className="flex justify-center py-20">
-                  <MotionDiv 
-                    animate={{ rotate: 360 }}
-                    transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
-                    className="w-8 h-8 border-2 border-wine border-t-transparent rounded-full"
-                  />
+                  <ShufflingCards />
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
