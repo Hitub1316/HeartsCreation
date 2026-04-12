@@ -11,7 +11,22 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/client";
 import { client } from "@/sanity/lib/client";
 import Script from "next/script";
+
+// High-fidelity fallback artworks for vault resilience (Studio Originals)
+const STUDIO_FALLBACKS = [
+  "https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1576132757913-6444b0e8b7f8?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1577083164850-29f145ed619c?q=80&w=800&auto=format&fit=crop"
+];
 function ArtVault({ images = [] }: { images: string[] }) {
+  // Use fallbacks if no live artworks are available due to CORS/API latency
+  const displayImages = images.length > 0 ? images : STUDIO_FALLBACKS;
+
   return (
     <div className="relative w-full h-[500px] flex items-center justify-center overflow-visible perspective-[1200px]">
       {/* The Tilted Rotating Ring */}
@@ -19,13 +34,13 @@ function ArtVault({ images = [] }: { images: string[] }) {
         initial={{ rotateY: 0, rotateX: -10 }}
         animate={{ rotateY: 360, rotateX: -10 }}
         transition={{ 
-          rotateY: { duration: 25, repeat: Infinity, ease: "linear" },
+          rotateY: { duration: 30, repeat: Infinity, ease: "linear" },
           rotateX: { duration: 0 } // Static tilt
         }}
         style={{ transformStyle: "preserve-3d" }}
         className="relative w-48 h-64"
       >
-        {images.map((imgUrl, i) => {
+        {displayImages.map((imgUrl, i) => {
           const angle = i * 45; // 360 / 8
           return (
             <div
@@ -37,27 +52,28 @@ function ArtVault({ images = [] }: { images: string[] }) {
                 left: 0,
                 top: 0,
                 transformStyle: "preserve-3d",
-                transform: `rotateY(${angle}deg) translateZ(400px)`,
+                transform: `rotateY(${angle}deg) translateZ(500px)`, // Increased depth for better perspective shift
                 backfaceVisibility: "visible",
               }}
               className="group"
             >
-              {/* Card Container with edge depth */}
-              <div className="relative w-full h-full bg-white/10 backdrop-blur-md rounded-lg overflow-hidden border border-white/20 shadow-2xl transition-transform duration-500 group-hover:scale-105">
+              {/* Card Container with edge depth and pulse */}
+              <div className="relative w-full h-full bg-white/5 backdrop-blur-xl rounded-lg overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(255,255,255,0.05)] transition-all duration-700 group-hover:scale-105 group-hover:border-white/30">
                 <img 
                   src={imgUrl} 
                   alt={`Vault Art ${i}`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-1000"
+                  loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-40" />
               </div>
             </div>
           );
         })}
       </MotionDiv>
       
-      {/* Ambient Floor Shadow/Glow */}
-      <div className="absolute bottom-10 w-full h-20 bg-black/20 blur-3xl opacity-40 rounded-[100%] transform -rotate-x-90" />
+      {/* Ambient Floor Shadow/Glow - Enhanced for Dark Brick Red */}
+      <div className="absolute bottom-5 w-[1200px] h-[300px] bg-black/40 blur-[120px] rounded-[100%] transform -rotate-x-90 -z-10" />
     </div>
   );
 }
