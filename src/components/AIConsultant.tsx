@@ -11,40 +11,53 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/client";
 import { client } from "@/sanity/lib/client";
 import Script from "next/script";
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
-
-// Lazy load Spline to prevent SSR buffer issues and Turbopack conflicts
-const Spline = dynamic(() => import("@splinetool/react-spline"), { 
-  ssr: false,
-  loading: () => <div className="animate-pulse bg-charcoal/5 dark:bg-white/5 w-full h-full rounded-sm" />
-});
-
-function SplineDiscovery({ images = [] }: { images: string[] }) {
-  const onLoad = (spline: any) => {
-    // Inject real artworks into the 8 card slots in the Spline scene
-    images.forEach((imgUrl, i) => {
-      const cardName = `card_${i + 1}`;
-      const obj = spline.findObjectByName(cardName);
-      
-      if (obj && obj.material && obj.material.layers) {
-        // Find the texture layer to update its image
-        const textureLayer = obj.material.layers.find((l: any) => l.type === 'texture');
-        if (textureLayer) {
-          textureLayer.updateTexture(imgUrl);
-        }
-      }
-    });
-  };
-
+function ArtVault({ images = [] }: { images: string[] }) {
   return (
-    <div className="relative w-full h-[400px] flex items-center justify-center overflow-hidden">
-      <Suspense fallback={<div className="animate-pulse bg-charcoal/5 dark:bg-white/5 w-full h-full rounded-sm" />}>
-        <Spline 
-          scene="https://prod.spline.design/662aa90a-c36a-47c5-83f9-9b518546099f/scene.splinecode"
-          onLoad={onLoad}
-        />
-      </Suspense>
+    <div className="relative w-full h-[500px] flex items-center justify-center overflow-visible perspective-[1200px]">
+      {/* The Tilted Rotating Ring */}
+      <MotionDiv
+        initial={{ rotateY: 0, rotateX: -10 }}
+        animate={{ rotateY: 360, rotateX: -10 }}
+        transition={{ 
+          rotateY: { duration: 25, repeat: Infinity, ease: "linear" },
+          rotateX: { duration: 0 } // Static tilt
+        }}
+        style={{ transformStyle: "preserve-3d" }}
+        className="relative w-48 h-64"
+      >
+        {images.map((imgUrl, i) => {
+          const angle = i * 45; // 360 / 8
+          return (
+            <div
+              key={i}
+              style={{
+                position: "absolute",
+                width: "100%",
+                height: "100%",
+                left: 0,
+                top: 0,
+                transformStyle: "preserve-3d",
+                transform: `rotateY(${angle}deg) translateZ(400px)`,
+                backfaceVisibility: "visible",
+              }}
+              className="group"
+            >
+              {/* Card Container with edge depth */}
+              <div className="relative w-full h-full bg-white/10 backdrop-blur-md rounded-lg overflow-hidden border border-white/20 shadow-2xl transition-transform duration-500 group-hover:scale-105">
+                <img 
+                  src={imgUrl} 
+                  alt={`Vault Art ${i}`}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+            </div>
+          );
+        })}
+      </MotionDiv>
+      
+      {/* Ambient Floor Shadow/Glow */}
+      <div className="absolute bottom-10 w-full h-20 bg-black/20 blur-3xl opacity-40 rounded-[100%] transform -rotate-x-90" />
     </div>
   );
 }
@@ -146,31 +159,32 @@ export default function AIConsultant() {
       <AnimatePresence>
         {isOpen && (
           <MotionDiv
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] bg-cream/95 dark:bg-wine-dark/95 backdrop-blur-sm flex items-center justify-center px-6 overflow-y-auto pt-20"
+            initial={{ opacity: 0, scale: 1.02, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 1.02, y: 10 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 z-[60] bg-[#D27D6B] flex items-center justify-center px-6 overflow-y-auto pt-20"
           >
             <button 
               onClick={handleClose}
-              className="absolute top-10 right-10 p-2 text-charcoal dark:text-cream hover:text-wine dark:hover:text-primary transition-colors"
+              className="absolute top-10 right-10 p-2 text-white/80 hover:text-white transition-colors"
             >
               <X className="w-8 h-8 font-light" />
             </button>
 
             <div className="max-w-4xl w-full">
               <div className="mb-12 text-center">
-                <h2 className="text-sm uppercase tracking-[0.3em] text-charcoal/40 dark:text-cream/40 mb-4 font-sans">AI Art Consultant</h2>
+                <h2 className="text-sm uppercase tracking-[0.3em] text-white/40 mb-4 font-sans">AI Art Consultant</h2>
                 <div className="relative inline-block">
-                   <p className="text-3xl md:text-4xl font-serif italic text-charcoal dark:text-cream leading-relaxed">
+                   <p className="text-3xl md:text-4xl font-serif italic text-white leading-relaxed">
                      &ldquo;{loading ? "Searching the studio..." : aiMessage || "Tell me what resonates with you."}&rdquo;
                    </p>
                 </div>
               </div>
 
               {loading ? (
-                <div className="flex justify-center py-2">
-                  <SplineDiscovery images={sampleArtworks} />
+                <div className="flex justify-center py-2 overflow-visible">
+                  <ArtVault images={sampleArtworks} />
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
