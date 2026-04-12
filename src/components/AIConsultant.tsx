@@ -97,11 +97,16 @@ export default function AIConsultant() {
     setIsOpen(true);
 
     try {
-      const res = await fetch("/api/ai", {
+      // Create a promise for the search and a promise for a minimum editorial delay
+      const searchPromise = fetch("/api/ai", {
         method: "POST",
         body: JSON.stringify({ query }),
         headers: { "Content-Type": "application/json" }
       });
+      const delayPromise = new Promise(resolve => setTimeout(resolve, 1500));
+
+      // Wait for both to ensure patrons see the high-fidelity 3D transition
+      const [res] = await Promise.all([searchPromise, delayPromise]);
       const data = await res.json();
       
       if (data.results) {
