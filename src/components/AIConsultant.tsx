@@ -86,21 +86,25 @@ export default function AIConsultant() {
   const [aiMessage, setAiMessage] = useState("");
   const [sampleArtworks, setSampleArtworks] = useState<string[]>([]);
 
+  // Sourcing high-fidelity artwork samples for the transition vault
   useEffect(() => {
-    // Fetch a pool of artworks to randomize shuffle cards
-    const fetchSamples = async () => {
+    async function fetchSamples() {
       try {
-        const query = `*[_type == "artwork"] | order(_createdAt desc)[0...20] { "imageUrl": image.asset->url }`;
-        const data = await client.fetch(query);
-        const urls = data.map((item: any) => item.imageUrl).filter(Boolean);
+        // Fetch through the server-side proxy to bypass CORS at the edge
+        const res = await fetch("/api/artworks/samples");
+        const data = await res.json();
         
-        // Randomize 8 for this session
-        const shuffled = [...urls].sort(() => 0.5 - Math.random());
-        setSampleArtworks(shuffled.slice(0, 8));
-      } catch (err) {
-        console.error("Failed to fetch shuffle samples:", err);
+        if (data.samples && data.samples.length > 0) {
+          setSampleArtworks(data.samples);
+        } else {
+          // Fallback to high-fidelity hardcoded originals if data is blocked
+          setSampleArtworks(STUDIO_FALLBACKS);
+        }
+      } catch (error) {
+        console.warn("Vault sourcing falling back to Studio Originals:", error);
+        setSampleArtworks(STUDIO_FALLBACKS);
       }
-    };
+    }
     fetchSamples();
   }, []);
 
