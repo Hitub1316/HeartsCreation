@@ -14,14 +14,14 @@ import Script from "next/script";
 
 // High-fidelity fallback artworks for vault resilience (Studio Originals)
 const STUDIO_FALLBACKS = [
-  "https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1576132757913-6444b0e8b7f8?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1577083164850-29f145ed619c?q=80&w=800&auto=format&fit=crop"
+  "https://cdn.sanity.io/images/qr1teroj/production/eb4b320f4e768bc5193473dae9ab13476b7fba5b-1592x1600.jpg",
+  "https://cdn.sanity.io/images/qr1teroj/production/09c23d1164689e07beaa7924b1fbcde42036cf0c-1174x1280.jpg",
+  "https://cdn.sanity.io/images/qr1teroj/production/69167f2cbbd51f54a3c98252dd3e382bb51528ee-1158x1280.jpg",
+  "https://cdn.sanity.io/images/qr1teroj/production/669cda4e5883baff542584bfbf3064539631d1e7-960x1280.jpg",
+  "https://cdn.sanity.io/images/qr1teroj/production/1a5c4bd13a85439e0cab4c56134f6230f3640102-1242x1600.jpg",
+  "https://cdn.sanity.io/images/qr1teroj/production/a39a3840d26f163280d3df0246e3fb2f96c31fd4-1122x1600.jpg",
+  "https://cdn.sanity.io/images/qr1teroj/production/9341724247c77cac78d0d139f1c3435d5a9f937a-1592x1559.jpg",
+  "https://cdn.sanity.io/images/qr1teroj/production/a7380de03b9ad76615719d5ea19339dda73dfe8c-1526x1600.jpg"
 ];
 function ArtVault({ images = [] }: { images: string[] }) {
   // Use fallbacks if no live artworks are available due to CORS/API latency
