@@ -163,7 +163,7 @@ export default function AIConsultant() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 1.02, y: 10 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-[60] bg-[#D27D6B] flex items-center justify-center px-6 overflow-y-auto pt-20"
+            className="fixed inset-0 z-[60] bg-[#8B3A34] flex items-center justify-center px-6 overflow-y-auto pt-20"
           >
             <button 
               onClick={handleClose}
