@@ -67,4 +67,4 @@ The platform is powered by Sanity. To manage artworks, categories, and review ap
 
 ## Credits
 
-Designed and developed with ❤️ for the art of **Arunima**.
+Designed and developed with ❤️ for the art of **Arunima Jain** by **Hitu Bharal**.
